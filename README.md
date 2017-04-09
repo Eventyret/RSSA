@@ -18,6 +18,7 @@ This app uses the API's from the following ressources
 - TheMovieDB
 - The Open Movie Database
 - FanartTV
+- TheTvDB
 
 The program does a search for data with OmDB for what you are searching for, then matches this with the information from Radarr and Sonarr, and tells you if it is in your collection. 
 It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr and Sonarr to post to your collection.
@@ -30,13 +31,15 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 - Grabs a random fanart at the first page. (if it exists)
 - Grabs the fanart for the movie you are looking in detail (if it exists)
 - Places a placeholder image if there is no poster to display
-
-### In Progress
 - Disable button to add to collection if it is already in your collection
 
+### In Progress
+
+- Add to series collection (This is for now disabled) (It needs an API call to TheTVdb)
+- Add  POST API for TheTVdb to connect to their endpoint /login
+- Store the token and pass this to their API to get tvdbID to be used in `info.js`
  
 ### Features Left to Implement
-- Add to series collection (This is for now disabled)
 - Enable AJAX to go back to search (Right now it just takes you back to the main page)
  
 ## Tech Used
