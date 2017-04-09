@@ -12,17 +12,14 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
-
-
-
-// Function to pass between search and info 
-function getMovie() {
+// Function to pass between search and info
+function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
   axios.get('https://www.omdbapi.com/?i=' + movieId)
     .then((response) => {
       let movie = response.data;
       var apiurl = ''
-      if (movie.Type == 'series') {
+      if (movie.Type === 'series') {
         var tvdbID = sessionStorage.getItem('tvdbID')
         if (tvdbID != null) {
           apiurl = 'https://webservice.fanart.tv/v3/tv/' + tvdbID
@@ -36,7 +33,7 @@ function getMovie() {
           console.log('Something went wrong: ' + err)
         } else {
           var imageUrl = ''
-          if (movie.Type == 'series') {
+          if (movie.Type === 'series') {
             imageUrl = image.showbackground[0].url
           } else {
             imageUrl = image.moviebackground[0].url
@@ -52,7 +49,7 @@ function getMovie() {
     })
 };
 // Writes the info
-function htmlWriteInfo(movie) {
+function htmlWriteInfo (movie) {
   let inCollection = sessionStorage.getItem('inCollection')
   let myHTML = ''
   myHTML += `<div class="row">
@@ -83,17 +80,15 @@ function htmlWriteInfo(movie) {
             ${movie.Plot}
             <hr>
             <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
-  if (movie.Type !== 'series' && inCollection == false) {
-    myHTML += ` <button class="btn btn-success btn-rounded" data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToCollection(objtype)"><i class="fa fa-cloud-download"></i> Add to collection</button>`
-  }
-  else {
-    myHTML += ` <button class="btn btn-danger btn-rounded disabled" data-toggle="tooltip" title="Sorry can't add Series yet" onclick="#"><i class="fa fa-cloud-download"></i> Add to collection</button>`
+  if (movie.Type !== 'series') {
+    myHTML += ` <button class="btn btn-success btn-rounded" data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+  } else {
+    myHTML += ` <button class="btn btn-danger btn-rounded disabled" data-toggle="tooltip" title="${movie.Title} already in collection" onclick="#"><i class="fa fa-cloud-download"></i> Add to collection</button>`
   }
   myHTML += ` <a href="index.html" class="btn btn-primary btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML
 }
 $(function () {
-  
   getData('https://eventyret.uk/movies/api/system/status/?apikey=' + apiv, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
@@ -104,40 +99,38 @@ $(function () {
   })
 });
 
-function addToCollection(objtype) {
+function addToCollection () {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
       console.log('Something went wrong: ' + err)
     } else {
-      var title = data.movie_results[0].title 
+      var title = data.movie_results[0].title
       var profileId = 6
       var year = data.movie_results[0].release_date.substring(0, 4)
-      var  id = data.movie_results[0].id
-      var  titleSlug = title.replace(/\s+/g, '-')
+      var id = data.movie_results[0].id
+      var titleSlug = title.replace(/\s+/g, '-')
       titleSlug = titleSlug + '-' + id
       titleSlug = titleSlug.toLowerCase();
       var rootFolderPath = '/media/Movies/Movies/'
       var poster = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].poster_path
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
       var ajaxUrl = 'https://eventyret.uk/movies/api/movie/?apikey=' + apiv
-      var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",'+
+      var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
       '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced" }';
       $.ajax({
-        type: "POST",
+        type: 'POST',
         url: ajaxUrl,
-        contentType: "application/json",
+        contentType: 'application/json',
         data: obj,
-        success: function(data) { alert("Added to collection"); },
-        error: function(xhr, textStatus, ex) {
-        if (xhr.status==201) { this.success(null, "Created", xhr); return; }
-        $("#ajaxreply").text( textStatus + "," + ex + "," + xhr.responseText );
-    },
+        success: function (data) { alert('Added to collection'); },
+        error: function (xhr, textStatus, ex) {
+          if (xhr.status==201) { this.success(null, 'Created', xhr); return; }
+          $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText);
+        },
         dataType: 'application/json'
       });
-  }
+    }
   }
   )
 };
-
-
