@@ -18,7 +18,7 @@ This app uses the API's from the following ressources
 - TheMovieDB
 - The Open Movie Database
 - FanartTV
-- TheTvDB
+- TheTVDB
 
 The program does a search for data with OmDB for what you are searching for, then matches this with the information from Radarr and Sonarr, and tells you if it is in your collection. 
 It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr and Sonarr to post to your collection.
@@ -35,8 +35,8 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 
 ### In Progress
 
-- Add to series collection (This is for now disabled) (It needs an API call to TheTVdb)
-- Add  POST API for TheTVdb to connect to their endpoint /login
+- Add to series collection (This is for now disabled) (It needs an API call to TheTVDB)
+- Add  POST API for TheTVDB to connect to their endpoint /login
 - Store the token and pass this to their API to get tvdbID to be used in `info.js`
  
 ### Features Left to Implement
@@ -69,11 +69,21 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
  
 ### Getting the code up and running
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
-2. Replace ALL API codes in ```js/common.js```
-    - You can find the API codes for **Radarr** and **Sonarr** in their ``/settings/general`` section.
+2. Create an empty file called `api.js` in `js/`
+3. Place this code in and fill in the variables with your API codes
+```javascript 
+var apifan = 'YOURAPIKEY' // Calling FanartApi
+var apiv = 'YOURAPIKEY' // Calling RadarrApi
+var apis = 'YOURAPIKEY' // Calling SonarrApi
+var tmdbapi = 'YOURAPIKEY' // Calling TheMovieDbApi
+var tvdb = 'YOURAPIKEY' //Calling TheTVdbApi
+```
+
+- You can find the API codes for **Radarr** and **Sonarr** in their ``/settings/general`` section.
     - API codes for **FanArt.tv** **TheMovieDB** you will need an account for. (Free)
         - [Fanart.tv](https://fanart.tv/get-an-api-key/)
         - [TheMovieDB](https://www.themoviedb.org/settings/api)
+        - [TheTVDB](http://thetvdb.com/)
 3. All Done. Thats it you can now just go to your URL and its ready to be used
 
 - You can select the time it takes to load the page in `/js/common.js`
