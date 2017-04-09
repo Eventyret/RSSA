@@ -92,7 +92,7 @@ function htmlWriteInfo(movie) {
   if (movie.Type !== 'series') {
     myHTML += ` <button class="btn btn-rounded btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
   myHTML += ` <a href="index.html" class="btn btn-primary btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML
@@ -172,17 +172,16 @@ function addToSeriesCollection() {
           //for each
           Seasons.forEach(function(mySeason){
             var i = mySeason.season_number
-            seasonsText += '{"seasonNumber":' + i + ',"monitored": true'
-            if (i = SeasonsLength - 1) {
+            seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
+            if (i == Seasons[SeasonsLength - 1].season_number) {
              seasonsText += '} ],'
             }
             else { seasonsText += '},'
           }
             })
-
           var ajaxUrl = 'https://eventyret.uk/series/api/series/?apikey=' + apis
           var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-            '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
+            '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tvdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
             '"addOptions":{"ignoreEpisodesWithoutFiles": true}} ';
           $.ajax({
             type: 'POST',
