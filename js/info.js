@@ -13,7 +13,7 @@ var getData = function (url, callback) {
   xhr.send()
 }
 // Function to pass between search and info
-function getMovie () {
+function getMovie() {
   let movieId = sessionStorage.getItem('movieId')
   axios.get('https://www.omdbapi.com/?i=' + movieId)
     .then((response) => {
@@ -49,7 +49,8 @@ function getMovie () {
     })
 };
 // Writes the info
-function htmlWriteInfo (movie) {
+function htmlWriteInfo(movie) {
+  var disabledbutton = ''
   let inCollection = sessionStorage.getItem('inCollection')
   let myHTML = ''
   myHTML += `<div class="row">
@@ -64,6 +65,7 @@ function htmlWriteInfo (movie) {
                   <li class="list-group-item"><strong><i class="fa fa-clock-o"></i> Runtime:</strong> ${movie.Runtime}</li>
                   <li class="list-group-item"><strong><i class="fa fa-star"></i> Rated:</strong> ${movie.Rated}</li>
                   <li class="list-group-item"><strong><i class="fa fa-imdb"></i> IMDB Rating:</strong> ${movie.imdbRating}</li>
+                  <li class="list-group-item"><strong><i class="fa id-badge"></i> IMDB ID:</strong> ${movie.imdbID}</li>
                   <li class="list-group-item"><strong><i class="fa fa-video-camera"></i> Director:</strong> ${movie.Director}</li>
                   <li class="list-group-item"><strong><i class="fa fa-pencil"></i> Writer:</strong> ${movie.Writer}</li>
                   <li class="list-group-item"><strong><i class="fa fa-users"></i> Actors:</strong> ${movie.Actors}</li>
@@ -80,10 +82,17 @@ function htmlWriteInfo (movie) {
             ${movie.Plot}
             <hr>
             <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
+   if (inCollection === 'true') 
+    { 
+      disabledbutton = `danger disabled" disabled` 
+    }
+    else { 
+     disabledbutton = `success"`  
+    }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-success btn-rounded" data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-danger btn-rounded disabled" data-toggle="tooltip" title="${movie.Title} already in collection" onclick="#"><i class="fa fa-cloud-download"></i> Add to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
   myHTML += ` <a href="index.html" class="btn btn-primary btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML
@@ -99,7 +108,7 @@ $(function () {
   })
 });
 
-function addToCollection () {
+function addToMovieCollection() {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
@@ -117,7 +126,7 @@ function addToCollection () {
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
       var ajaxUrl = 'https://eventyret.uk/movies/api/movie/?apikey=' + apiv
       var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-      '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced" }';
+        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced" }';
       $.ajax({
         type: 'POST',
         url: ajaxUrl,
@@ -125,11 +134,70 @@ function addToCollection () {
         data: obj,
         success: function (data) { alert('Added to collection'); },
         error: function (xhr, textStatus, ex) {
-          if (xhr.status==201) { this.success(null, 'Created', xhr); return; }
+          if (xhr.status == 201) { this.success(null, 'Created', xhr); return; }
           $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText);
         },
         dataType: 'application/json'
       });
+    }
+  }
+  )
+};
+
+function addToSeriesCollection() {
+  let movieId = sessionStorage.getItem('movieId')
+  getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
+    if (err !== null) {
+      console.log('Something went wrong: ' + err)
+    } else {
+      var title = data.tv_results[0].original_name
+      var profileId = 6
+      var monitored = true
+      // var year = data.movie_results[0].release_date.substring(0, 4)
+      var id = data.tv_results[0].id
+      var titleSlug = title.replace(/\s+/g, '-')
+      titleSlug = titleSlug + '-' + id
+      titleSlug = titleSlug.toLowerCase();
+      var rootFolderPath = '/media/Movies/Series/'
+      var poster = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].poster_path
+      var backdrop = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].backdrop_path
+
+      getData('https://api.themoviedb.org/3/tv/' + id + '?api_key=' + tmdbapi, function (err, data2) {
+        if (err !== null) {
+          console.log('Something wnet wrong: ' + err)
+        } else {
+          var Seasons = data2.seasons
+          var SeasonsLength = data2.seasons.length
+          var seasonsText = '"seasons": ['
+          //for each
+          Seasons.forEach(function(mySeason){
+            var i = mySeason.season_number
+            seasonsText += '{"seasonNumber":' + i + ',"monitored": true'
+            if (i = SeasonsLength - 1) {
+             seasonsText += '} ],'
+            }
+            else { seasonsText += '},'
+          }
+            })
+
+          var ajaxUrl = 'https://eventyret.uk/series/api/series/?apikey=' + apis
+          var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
+            '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
+            '"addOptions":{"ignoreEpisodesWithoutFiles": true}} ';
+          $.ajax({
+            type: 'POST',
+            url: ajaxUrl,
+            contentType: 'application/json',
+            data: obj,
+            success: function (data) { alert('Added to collection'); },
+            error: function (xhr, textStatus, ex) {
+              if (xhr.status == 201) { this.success(null, 'Created', xhr); return; }
+              $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText);
+            },
+            dataType: 'application/json'
+          });
+        }
+      })
     }
   }
   )
