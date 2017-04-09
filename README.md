@@ -30,11 +30,14 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 - Grabs a random fanart at the first page. (if it exists)
 - Grabs the fanart for the movie you are looking in detail (if it exists)
 - Places a placeholder image if there is no poster to display
+
+### In Progress
+- Disable button to add to collection if it is already in your collection
+
  
 ### Features Left to Implement
 - Add to series collection (This is for now disabled)
 - Enable AJAX to go back to search (Right now it just takes you back to the main page)
-- Disable button to add to collection if it is already in your collection
  
 ## Tech Used
 ### Some the tech used includes:
