@@ -12,6 +12,7 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
+getToken(); // testing the call to the API 
 // Function to pass between search and info
 function getMovie() {
   let movieId = sessionStorage.getItem('movieId')

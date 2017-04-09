@@ -4,7 +4,7 @@ function getToken() {
     var xhr = new XMLHttpRequest();
 
     xhr.open('POST', loginUrl, true);
-    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.setRequestHeader('Content-Type', 'application/jsonp; charset=UTF-8');
     xhr.addEventListener('load', function () {
         var responseObject = JSON.parse(this.response);
         console.log(responseObject);
@@ -14,11 +14,8 @@ function getToken() {
             tokenElement.innerHTML = "No token received";
         }
     });
-
-    var sendObject = JSON.stringify({"apikey": "' + tvdbapikey + '", "userkey": "' + tvdbuserkey + '", "username": "' + tvdbusername + '"
-    });
-
-    console.log('going to send', sendObject);
-
+    var sendObject = '{"apikey": "' + tvdbapikey + '", "userkey": "' + tvdbuserkey + '", "username": "' + tvdbusername + '"}';
+    // console.log('going to send', sendObject);
     xhr.send(sendObject);
+    localStorage.setItem('token', token);
 }
