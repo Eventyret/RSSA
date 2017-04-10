@@ -69,6 +69,10 @@ Using the API from Radarr and Sonarr to post to your collection.
     - Providing a API to find for movies and TV Shows
 
 ## Contributing
+
+### Dependencies
+- [Radarr](https://github.com/Radarr/Radarr) (This needs to be present and installed)
+- [Sonarr](https://github.com/Sonarr/Sonarr) (This is optional match for series)
  
 ### Getting the code up and running
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
