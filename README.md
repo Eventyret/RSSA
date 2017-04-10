@@ -41,6 +41,7 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
  
 ### Features Left to Implement
 - Enable AJAX to go back to search (Right now it just takes you back to the main page)
+- Cleanup URL's and make them global variable for easy usage of others.
  
 ## Tech Used
 ### Some the tech used includes:
@@ -78,6 +79,7 @@ var apis = 'YOURAPIKEY' // Calling SonarrApi
 var tmdbapi = 'YOURAPIKEY' // Calling TheMovieDbApi
 var tvdb = 'YOURAPIKEY' //Calling TheTVdbApi
 ```
+4.In main.js replace your url
 
 - You can find the API codes for **Radarr** and **Sonarr** in their ``/settings/general`` section.
     - API codes for **FanArt.tv** **TheMovieDB** you will need an account for. (Free)
