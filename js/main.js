@@ -100,6 +100,9 @@ function getMovies (searchText) {
 
 // Writes the Search Results
 function htmlWriteResults (cases) {
+  String.prototype.toProperCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
   let myHTML = ''
   myHTML += `<div class="col-md-4">
             <div class="well text-center">`
@@ -111,7 +114,7 @@ function htmlWriteResults (cases) {
   myHTML += `<img src="${posterError(cases.Poster)}">
               <h5>${cases.Title}</h5>
                 <div class="btn-group">
-                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded waves-effect waves-light " href="#"><i class="fa fa-info-circle"></i> Movie Details</a>
+                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded waves-effect waves-light " href="#"><i class="fa fa-info-circle"></i> ${cases.Type.toProperCase()} Details</a>
                 </div>
             </div>
           </div>
