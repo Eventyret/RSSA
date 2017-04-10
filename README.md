@@ -89,8 +89,7 @@ var tvdb = 'YOURAPIKEY' //Calling TheTVdbApi
 3. All Done. Thats it you can now just go to your URL and its ready to be used
 
 - You can select the time it takes to load the page in `/js/common.js`
-
-   -Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
+   - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
    Bigger Libary needs longer time (Not found a workaround for this yet.)
 
 
