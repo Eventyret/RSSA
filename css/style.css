@@ -1,12 +1,13 @@
 body {
     background-color: #3E4551
 }
-#movies img, #movie img {
+#movies img {
     height: 220px;
     width: 150px;
 }
 #movie .col-md-4 img {
     height: 390px;
+    width: 100%;
 }
 #movies .col-md-4 img {
     height: 220px;

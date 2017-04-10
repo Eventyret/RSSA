@@ -12,11 +12,11 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
-// getToken(); // testing the call to the API 
+getToken(); // testing the call to the API 
 // Function to pass between search and info
 function getMovie() {
   let movieId = sessionStorage.getItem('movieId')
-  axios.get('https://www.omdbapi.com/?i=' + movieId)
+  axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
     .then((response) => {
       let movie = response.data;
       var apiurl = ''
@@ -70,7 +70,7 @@ function htmlWriteInfo(movie) {
                   <li class="list-group-item"><strong><i class="fa fa-video-camera"></i> Director:</strong> ${movie.Director}</li>
                   <li class="list-group-item"><strong><i class="fa fa-pencil"></i> Writer:</strong> ${movie.Writer}</li>
                   <li class="list-group-item"><strong><i class="fa fa-users"></i> Actors:</strong> ${movie.Actors}</li>
-                  <li class="list-group-item"><strong><i class="fa fa-flag"></i> Country:</strong> ${movie.Country}</li>`
+                  <li class="list-group-item"><strong><i class="fa fa-globe"></i> Language:</strong> ${movie.Language}</li>`
   if (movie.Type === 'series') {
     myHTML += `<li class="list-group-item"><strong><i class="fa fa-television"></i> Total Seasons:</strong> ${movie.totalSeasons}</li>`
   }

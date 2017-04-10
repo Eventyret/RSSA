@@ -40,7 +40,7 @@ $(document).ready(() => {
       var min = 0
       var random = Math.floor(Math.random() * (max - min + 1)) + min
       var randomID = data[random].imdbId
-    //  randomID = 'tt3849692'
+      //  randomID = 'tt3849692'
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
         if (err != null) {
           document.body.style.backgroundColor = '#3E4551'
@@ -65,7 +65,7 @@ $(document).ready(() => {
 })
 
 // Loops checks if movie is in collection
-function filterMovies (id) {
+function filterMovies(id) {
   let isDownloaded = false // Set default value of `false`
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -82,7 +82,7 @@ function filterMovies (id) {
 }
 
 // Search Function
-function getMovies (searchText) {
+function getMovies(searchText) {
   axios.get('https://www.omdbapi.com/?s=' + searchText)
     .then((response) => {
       let omdbData = response.data.Search
@@ -99,22 +99,22 @@ function getMovies (searchText) {
 }
 
 // Writes the Search Results
-function htmlWriteResults (cases) {
+function htmlWriteResults(cases) {
   String.prototype.toProperCase = function () {
-    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-};
+    return this.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+  };
   let myHTML = ''
   myHTML += `<div class="col-md-4">
             <div class="well text-center">`
   if (filterMovies(cases.imdbID)) {
     myHTML += `<div class="alert alert-success" id="${cases.imdbID}inCollection"><i class="fa fa-cloud-download"></i> In Collection</div>`
-  }  else {
+  } else {
     myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><i class="fa fa-exclamation-triangle"></i> Not in Collection</div>`
   }
   myHTML += `<img src="${posterError(cases.Poster)}">
-              <h5>${cases.Title}</h5>
+              <h5>${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
-                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded waves-effect waves-light " href="#"><i class="fa fa-info-circle"></i> ${cases.Type.toProperCase()} Details</a>
+                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${cases.Type.toProperCase()} Details</a>
                 </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ function htmlWriteResults (cases) {
 
 // Check for tvdbID
 
-function getTvdb (id) {
+function getTvdb(id) {
   let tvdbid = ''
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -141,13 +141,13 @@ function getTvdb (id) {
 }
 
 // Set storage Items
-function movieSelected (id) {
+function movieSelected(id) {
   var tvdbID = getTvdb(id)
-  if (tvdbID != ''){
+  if (tvdbID != '') {
     sessionStorage.setItem('tvdbID', tvdbID)
   }
   sessionStorage.setItem('movieId', id)
-  if (document.getElementById(id + 'inCollection')){
+  if (document.getElementById(id + 'inCollection')) {
     sessionStorage.setItem('inCollection', true)
   } else {
     sessionStorage.setItem('inCollection', false)

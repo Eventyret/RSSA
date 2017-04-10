@@ -4,7 +4,7 @@ function getToken() {
     var xhr = new XMLHttpRequest();
 
     xhr.open('POST', loginUrl, true);
-    xhr.setRequestHeader('Content-Type', 'application/jsonp; charset=UTF-8');
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     xhr.addEventListener('load', function () {
         var responseObject = JSON.parse(this.response);
         console.log(responseObject);
