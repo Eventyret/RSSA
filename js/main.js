@@ -17,7 +17,7 @@ $(document).ready(() => {
     let searchText = $('#searchText').val()
     getMovies(searchText)
     e.preventDefault()
-  })
+})
 
   let moviesandtvshows = []
 
@@ -63,6 +63,15 @@ $(document).ready(() => {
   })
   this.data = moviesandtvshows
 })
+  // Postback function to put searchText back to input
+  $(window).load(function() {
+  var searchFor = window.location.href.split('?q=')
+  var searchQuery = searchFor[1]
+  if ( searchQuery != null && searchFor.length > 1) {
+    document.getElementById("searchText").value = decodeURI(searchQuery);
+    //document.getElementById("searchForm").submit() // This is to submit what was already searched for
+    //this.preventDefault(); // Trying to prevent defaults
+  }});
 
 // Loops checks if movie is in collection
 function filterMovies(id) {
@@ -83,6 +92,7 @@ function filterMovies(id) {
 
 // Search Function
 function getMovies(searchText) {
+  // if (localStorage !== '') 
   axios.get('https://www.omdbapi.com/?s=' + searchText)
     .then((response) => {
       let omdbData = response.data.Search
@@ -152,7 +162,8 @@ function movieSelected(id) {
   } else {
     sessionStorage.setItem('inCollection', false)
   };
-  window.location = 'info.html'
+  var searchedFor = $('#searchText').val()
+  window.location = 'info.html?q=' + searchedFor
   return false
 }
 $('#message').click(function () {

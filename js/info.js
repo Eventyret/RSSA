@@ -12,13 +12,13 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
-getToken(); // testing the call to the API 
-// Function to pass between search and info
+	// getToken(); // testing the call to the API
+	// Function to pass between search and info
 function getMovie() {
   let movieId = sessionStorage.getItem('movieId')
   axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
     .then((response) => {
-      let movie = response.data;
+      let movie = response.data
       var apiurl = ''
       if (movie.Type === 'series') {
         var tvdbID = sessionStorage.getItem('tvdbID')
@@ -39,7 +39,7 @@ function getMovie() {
           } else {
             imageUrl = image.moviebackground[0].url
           }
-          $('body').css('background-image', 'url(' + imageUrl + ')');
+          $('body').css('background-image', 'url(' + imageUrl + ')')
           console.log(imageUrl)
         }
       })
@@ -95,7 +95,9 @@ function htmlWriteInfo(movie) {
   } else {
     myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
-  myHTML += ` <a href="index.html" class="btn btn-primary btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
+  var searchFor = window.location.href.split('?q=')
+  var searchQuery = searchFor[1]
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-primary btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`
   return myHTML
 }
 $(function () {
@@ -107,7 +109,7 @@ $(function () {
       $('#version').html(`<i class="fa fa-info-circle"></i> Version` + ' ' + data.version + ' ' + 'Build Time: ' + myDate.getDate() + '/' + (myDate.getMonth() + 1) + '/' + myDate.getFullYear())
     }
   })
-});
+})
 
 function addToMovieCollection() {
   let movieId = sessionStorage.getItem('movieId')
@@ -121,25 +123,25 @@ function addToMovieCollection() {
       var id = data.movie_results[0].id
       var titleSlug = title.replace(/\s+/g, '-')
       titleSlug = titleSlug + '-' + id
-      titleSlug = titleSlug.toLowerCase();
+      titleSlug = titleSlug.toLowerCase()
       var rootFolderPath = '/media/Movies/Movies/'
       var poster = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].poster_path
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
       var ajaxUrl = radarrurl + apiv
       var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced", "monitored": true }';
+        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced", "monitored": true }'
       $.ajax({
         type: 'POST',
         url: ajaxUrl,
         contentType: 'application/json',
         data: obj,
-        success: function (data) { alert('Added to collection'); },
+        success: function (data) { alert('Added to collection') },
         error: function (xhr, textStatus, ex) {
-          if (xhr.status == 201) { this.success(null, 'Created', xhr); return; }
-          $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText);
+          if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
+          $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
         },
         dataType: 'application/json'
-      });
+      })
     }
   }
   )
@@ -158,7 +160,7 @@ function addToSeriesCollection() {
       var id = data.tv_results[0].id
       var titleSlug = title.replace(/\s+/g, '-')
       titleSlug = titleSlug + '-' + id
-      titleSlug = titleSlug.toLowerCase();
+      titleSlug = titleSlug.toLowerCase()
       var rootFolderPath = '/media/Movies/Series/'
       var poster = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].poster_path
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].backdrop_path
@@ -170,7 +172,7 @@ function addToSeriesCollection() {
           var Seasons = data2.seasons
           var SeasonsLength = data2.seasons.length
           var seasonsText = '"seasons": ['
-          //for each
+          // for each
           Seasons.forEach(function(mySeason){
             var i = mySeason.season_number
             seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
@@ -183,19 +185,19 @@ function addToSeriesCollection() {
           var ajaxUrl = sonarrurl + apis
           var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
             '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tvdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
-            '"addOptions":{"ignoreEpisodesWithoutFiles": true}} ';
+            '"addOptions":{"ignoreEpisodesWithoutFiles": true}} '
           $.ajax({
             type: 'POST',
             url: ajaxUrl,
             contentType: 'application/json',
             data: obj,
-            success: function (data) { alert('Added to collection'); },
+            success: function (data) { alert('Added to collection') },
             error: function (xhr, textStatus, ex) {
-              if (xhr.status == 201) { this.success(null, 'Created', xhr); return; }
-              $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText);
+              if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
+              $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
             },
             dataType: 'application/json'
-          });
+          })
         }
       })
     }
