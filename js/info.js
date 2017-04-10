@@ -127,7 +127,7 @@ function addToMovieCollection() {
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
       var ajaxUrl = 'https://eventyret.uk/movies/api/movie/?apikey=' + apiv
       var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced" }';
+        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced", "monitored": true }';
       $.ajax({
         type: 'POST',
         url: ajaxUrl,
