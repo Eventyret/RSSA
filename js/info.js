@@ -99,7 +99,7 @@ function htmlWriteInfo(movie) {
   return myHTML
 }
 $(function () {
-  getData('https://eventyret.uk/movies/api/system/status/?apikey=' + apiv, function (err, data) {
+  getData(statusurl + apiv, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -125,7 +125,7 @@ function addToMovieCollection() {
       var rootFolderPath = '/media/Movies/Movies/'
       var poster = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].poster_path
       var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
-      var ajaxUrl = 'https://eventyret.uk/movies/api/movie/?apikey=' + apiv
+      var ajaxUrl = radarrurl + apiv
       var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
         '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced", "monitored": true }';
       $.ajax({
@@ -180,7 +180,7 @@ function addToSeriesCollection() {
             else { seasonsText += '},'
           }
             })
-          var ajaxUrl = 'https://eventyret.uk/series/api/series/?apikey=' + apis
+          var ajaxUrl = sonarrurl + apis
           var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
             '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tvdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
             '"addOptions":{"ignoreEpisodesWithoutFiles": true}} ';

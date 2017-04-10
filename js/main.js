@@ -21,7 +21,7 @@ $(document).ready(() => {
 
   let moviesandtvshows = []
 
-  getData('https://eventyret.uk/movies/api/system/status/?apikey=' + apiv, function (err, data) {
+  getData(statusurl + apiv, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -30,7 +30,7 @@ $(document).ready(() => {
     }
   })
 
-  getData('https://eventyret.uk/movies/api/movie/?apikey=' + apiv, function (err, data) {
+  getData(radarrurl + apiv, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -54,7 +54,7 @@ $(document).ready(() => {
       })
     }
   })
-  getData('https://eventyret.uk/series/api/series/?apikey=' + apis, function (err, data) {
+  getData(sonarrurl + apis, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {

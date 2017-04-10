@@ -29,19 +29,20 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 - Search for any Movie or TV Series
 - Add to movie collection
 - Grabs a random fanart at the first page. (if it exists)
-- Grabs the fanart for the movie you are looking in detail (if it exists)
-- Places a placeholder image if there is no poster to display
-- Disable button to add to collection if it is already in your collection
+- Grabs the fanart for the movie you are looking in detail. (if it exists)
+- Places a placeholder image if there is no poster to display.
+- Add button is disabled if you have it in your collection.
 
 ### In Progress
 
 - Add to series collection (This is for now disabled) (It needs an API call to TheTVDB)
 - Add  POST API for TheTVDB to connect to their endpoint /login
 - Store the token and pass this to their API to get tvdbID to be used in `info.js`
+- Cleanup URL's and make them global variable for easy usage of others.
  
 ### Features Left to Implement
 - Enable AJAX to go back to search (Right now it just takes you back to the main page)
-- Cleanup URL's and make them global variable for easy usage of others.
+
  
 ## Tech Used
 ### Some the tech used includes:
@@ -73,11 +74,16 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 2. Create an empty file called `api.js` in `js/`
 3. Place this code in and fill in the variables with your API codes
 ```javascript 
-var apifan = 'YOURAPIKEY' // Calling FanartApi
-var apiv = 'YOURAPIKEY' // Calling RadarrApi
-var apis = 'YOURAPIKEY' // Calling SonarrApi
-var tmdbapi = 'YOURAPIKEY' // Calling TheMovieDbApi
-var tvdb = 'YOURAPIKEY' //Calling TheTVdbApi
+var apifan = '' // FanArt.tv API KEY
+var apiv = '' // Radarr API KEY
+var apis = '' // Sonarr API KEY
+var tmdbapi = '' // TheMovieDb API KEY
+var tvdbapikey = '' // TheTVDB API KEY
+var tvdbuserkey = '' // TheTVDB Account Identifier
+var tvdbusername = '' // Your TheTVDB username 
+var radarrurl = 'http://YOURRADARRURL/api/movie/?apikey=' // Your Radarr URL
+var sonarrurl = 'http://YOURSONARRURL/series/api/series/?apikey=' // Your Sonarr URL
+var statusurl = 'http://YOURRADARRURL/movies/api/system/status/?apikey=' // Your Radarr URL
 ```
 4.In main.js replace your url
 
