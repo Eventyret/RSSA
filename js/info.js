@@ -14,7 +14,7 @@ var getData = function (url, callback) {
 }
 	// getToken(); // testing the call to the API
 	// Function to pass between search and info
-function getMovie() {
+function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
   axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
     .then((response) => {
@@ -40,7 +40,6 @@ function getMovie() {
             imageUrl = image.moviebackground[0].url
           }
           $('body').css('background-image', 'url(' + imageUrl + ')')
-          //console.log(imageUrl)
         }
       })
       $('#movie').html(htmlWriteInfo(movie))
@@ -50,7 +49,7 @@ function getMovie() {
     })
 };
 // Writes the info
-function htmlWriteInfo(movie) {
+function htmlWriteInfo (movie) {
   var disabledbutton = ''
   let inCollection = sessionStorage.getItem('inCollection')
   let myHTML = ''
@@ -83,13 +82,13 @@ function htmlWriteInfo(movie) {
             ${movie.Plot}
             <hr>
             <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
-   if (inCollection === 'true') 
+  if (inCollection === 'true') 
     { 
-      disabledbutton = `danger disabled" disabled` 
-    }
-    else { 
+     disabledbutton = `danger disabled" disabled` 
+   }
+  else { 
      disabledbutton = `success"`  
-    }
+   }
   if (movie.Type !== 'series') {
     myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
@@ -111,7 +110,7 @@ $(function () {
   })
 })
 
-function addToMovieCollection() {
+function addToMovieCollection () {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
@@ -147,7 +146,7 @@ function addToMovieCollection() {
   )
 };
 
-function addToSeriesCollection() {
+function addToSeriesCollection () {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
@@ -173,15 +172,15 @@ function addToSeriesCollection() {
           var SeasonsLength = data2.seasons.length
           var seasonsText = '"seasons": ['
           // for each
-          Seasons.forEach(function(mySeason){
+          Seasons.forEach(function (mySeason){
             var i = mySeason.season_number
             seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
             if (i == Seasons[SeasonsLength - 1].season_number) {
-             seasonsText += '} ],'
+              seasonsText += '} ],'
             }
             else { seasonsText += '},'
-          }
-            })
+            }
+          })
           var ajaxUrl = sonarrurl + apis
           var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
             '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tvdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +

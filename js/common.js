@@ -8,6 +8,10 @@ function posterError (poster) {
     return poster
   }
 }
+// Create First letter uppercase
+function upperFirst (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
 
 // Loading Animation
 $(document).ready(function () {

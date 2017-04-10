@@ -17,7 +17,7 @@ $(document).ready(() => {
     let searchText = $('#searchText').val()
     getMovies(searchText)
     e.preventDefault()
-})
+  })
 
   let moviesandtvshows = []
 
@@ -32,14 +32,12 @@ $(document).ready(() => {
 
   getData(radarrurl + apiv, function (err, data) {
     if (err != null) {
-      // console.log('Something went wrong: ' + err)
     } else {
       moviesandtvshows.push({ 'movies': data })
       var max = data.length
       var min = 0
       var random = Math.floor(Math.random() * (max - min + 1)) + min
       var randomID = data[random].imdbId
-      //  randomID = 'tt3849692'
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
         if (err != null) {
           document.body.style.backgroundColor = '#3E4551'
@@ -61,18 +59,19 @@ $(document).ready(() => {
   })
   this.data = moviesandtvshows
 })
-  // Postback function to put searchText back to input
-  $(window).load(function() {
+// Postback function to put searchText back to input
+$(window).load(function () {
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
-  if ( searchQuery != null && searchFor.length > 1) {
-    document.getElementById("searchText").value = decodeURI(searchQuery);
-    //document.getElementById("searchForm").submit() // This is to submit what was already searched for
-    //this.preventDefault(); // Trying to prevent defaults
-  }});
+  if (searchQuery != null && searchFor.length > 1) {
+    document.getElementById('searchText').value = decodeURI(searchQuery)
+    // document.getElementById("searchForm").submit() // This is to submit what was already searched for
+    // this.preventDefault(); // Trying to prevent defaults
+  }
+})
 
 // Loops checks if movie is in collection
-function filterMovies(id) {
+function filterMovies (id) {
   let isDownloaded = false // Set default value of `false`
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -89,8 +88,7 @@ function filterMovies(id) {
 }
 
 // Search Function
-function getMovies(searchText) {
-  // if (localStorage !== '') 
+function getMovies (searchText) {
   axios.get('https://www.omdbapi.com/?s=' + searchText)
     .then((response) => {
       let omdbData = response.data.Search
@@ -107,10 +105,8 @@ function getMovies(searchText) {
 }
 
 // Writes the Search Results
-function htmlWriteResults(cases) {
-  String.prototype.toProperCase = function () {
-    return this.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-  };
+function htmlWriteResults (cases) {
+
   let myHTML = ''
   myHTML += `<div class="col-md-4">
             <div class="well text-center">`
@@ -122,7 +118,7 @@ function htmlWriteResults(cases) {
   myHTML += `<img src="${posterError(cases.Poster)}">
               <h5>${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
-                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${cases.Type.toProperCase()} Details</a>
+                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
                 </div>
             </div>
           </div>
@@ -132,7 +128,7 @@ function htmlWriteResults(cases) {
 
 // Check for tvdbID
 
-function getTvdb(id) {
+function getTvdb (id) {
   let tvdbid = ''
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -149,7 +145,7 @@ function getTvdb(id) {
 }
 
 // Set storage Items
-function movieSelected(id) {
+function movieSelected (id) {
   var tvdbID = getTvdb(id)
   if (tvdbID != '') {
     sessionStorage.setItem('tvdbID', tvdbID)
