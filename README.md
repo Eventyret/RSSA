@@ -21,7 +21,8 @@ This app uses the API's from the following ressources
 - TheTVDB
 
 The program does a search for data with OmDB for what you are searching for, then matches this with the information from Radarr and Sonarr, and tells you if it is in your collection. 
-It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr and Sonarr to post to your collection.
+It matches this by using *sizeonDisk* and *IMDB titles*. 
+Using the API from Radarr and Sonarr to post to your collection.
 
 ## Features
  
@@ -30,18 +31,18 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 - Add to movie collection
 - Grabs a random fanart at the first page. (if it exists)
 - Grabs the fanart for the movie you are looking in detail. (if it exists)
-- Places a placeholder image if there is no poster to display.
-- Add button is disabled if you have it in your collection.
+- Adds a placeholder image if there is no poster to display.
+- Button is disabled if you have it in your collection.
+- Url's are now stored as variables (Change your url in `js/api.js`.
+- Go back to search (Using Querystrings)
 
 ### In Progress
-
-- Add to series collection (This is for now disabled) (It needs an API call to TheTVDB)
-- Add  POST API for TheTVDB to connect to their endpoint /login
-- Store the token and pass this to their API to get tvdbID to be used in `info.js`
-- Cleanup URL's and make them global variable for easy usage of others.
+- Created `js/thetvdb.js` to test TheTVDB Api post function.
  
 ### Features Left to Implement
-- Enable AJAX to go back to search (Right now it just takes you back to the main page)
+- Add to series collection (**This is currently not working due the API from TheTVDB**)
+    - Add  POST API for TheTVDB to connect to their endpoint /login
+    - Store the token and pass this to their API to get tvdbID to be used in `info.js`
 
  
 ## Tech Used
@@ -72,7 +73,7 @@ It matches this by using sizeonDisk and IMDB titles. Using the API from Radarr a
 ### Getting the code up and running
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
 2. Create an empty file called `api.js` in `js/`
-3. Place this code in and fill in the variables with your API codes
+3. Place this code in and fill in the variables with your API codes and respective urls
 ```javascript 
 var apifan = '' // FanArt.tv API KEY
 var apiv = '' // Radarr API KEY

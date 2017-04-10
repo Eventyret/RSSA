@@ -166,6 +166,3 @@ function movieSelected(id) {
   window.location = 'info.html?q=' + searchedFor
   return false
 }
-$('#message').click(function () {
-  $(this).slideUp()
-})
