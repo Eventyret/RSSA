@@ -32,9 +32,9 @@ $(document).ready(() => {
 
   getData(radarrurl + apiv, function (err, data) {
     if (err != null) {
-      console.log('Something went wrong: ' + err)
+      // console.log('Something went wrong: ' + err)
     } else {
-      console.log(moviesandtvshows)
+      // console.log(moviesandtvshows)
       moviesandtvshows.push({ 'movies': data })
       var max = data.length
       var min = 0
@@ -44,7 +44,7 @@ $(document).ready(() => {
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
         if (err != null) {
           document.body.style.backgroundColor = '#3E4551'
-          console.log('Something went wrong: ' + err)
+          // console.log('Something went wrong: ' + err)
         } else {
           var randomIDurl = image.moviebackground[0].url
           $('body').css('background-image', 'url(' + randomIDurl + ')')

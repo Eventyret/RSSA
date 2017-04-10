@@ -40,7 +40,7 @@ function getMovie() {
             imageUrl = image.moviebackground[0].url
           }
           $('body').css('background-image', 'url(' + imageUrl + ')')
-          console.log(imageUrl)
+          //console.log(imageUrl)
         }
       })
       $('#movie').html(htmlWriteInfo(movie))
@@ -135,7 +135,7 @@ function addToMovieCollection() {
         url: ajaxUrl,
         contentType: 'application/json',
         data: obj,
-        success: function (data) { alert('Added to collection') },
+        success: function (data) { bootbox.alert('Added to collection') },
         error: function (xhr, textStatus, ex) {
           if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
           $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
@@ -191,7 +191,7 @@ function addToSeriesCollection() {
             url: ajaxUrl,
             contentType: 'application/json',
             data: obj,
-            success: function (data) { alert('Added to collection') },
+            success: function (data) { bootbox.alert('Added to collection') },
             error: function (xhr, textStatus, ex) {
               if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
               $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
