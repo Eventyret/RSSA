@@ -112,3 +112,7 @@ a:active {
 #search {
     background-color: rgba(255,255,255,0.8);
 }
+
+.btn-space {
+    margin-right: 5px;
+}

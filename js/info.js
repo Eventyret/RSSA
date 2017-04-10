@@ -82,7 +82,7 @@ function htmlWriteInfo(movie) {
             <h3>Plot</h3>
             ${movie.Plot}
             <hr>
-            <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
+            <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
    if (inCollection === 'true') 
     { 
       disabledbutton = `danger disabled" disabled` 
@@ -91,11 +91,11 @@ function htmlWriteInfo(movie) {
      disabledbutton = `success"`  
     }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
-  myHTML += ` <a href="index.html" class="btn btn-primary btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
+  myHTML += ` <a href="index.html" class="btn btn-primary btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML
 }
 $(function () {
