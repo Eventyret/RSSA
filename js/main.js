@@ -42,9 +42,11 @@ $(document).ready(() => {
         if (err != null) {
           document.body.style.backgroundColor = '#3E4551'
         } else {
-          var randomIDurl = image.moviebackground[0].url
+          max = image.moviebackground.length
+          random = Math.floor(Math.random() * (max - min + 1 )) + min
+          var randomIDurl = image.moviebackground[random].url
           $('body').css('background-image', 'url(' + randomIDurl + ')')
-          $('body').addClass('randombg')
+          $('body').addClass('randombg')         
           sessionStorage.setItem('backgroundImageUrl', randomIDurl)
         }
       })
@@ -65,8 +67,7 @@ $(window).load(function () {
   var searchQuery = searchFor[1]
   if (searchQuery != null && searchFor.length > 1) {
     document.getElementById('searchText').value = decodeURI(searchQuery)
-    // document.getElementById("searchForm").submit() // This is to submit what was already searched for
-    // this.preventDefault(); // Trying to prevent defaults
+    getMovies(searchQuery)
   }
 })
 
