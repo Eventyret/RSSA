@@ -21,7 +21,7 @@ $(document).ready(() => {
 
   let moviesandtvshows = []
 
-  getData(statusurl + apiv, function (err, data) {
+  getData(statusurl, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -30,7 +30,7 @@ $(document).ready(() => {
     }
   })
 
-  getData(radarrurl + apiv, function (err, data) {
+  getData(radarrurl, function (err, data) {
     if (err != null) {
     } else {
       moviesandtvshows.push({ 'movies': data })
@@ -50,7 +50,7 @@ $(document).ready(() => {
       })
     }
   })
-  getData(sonarrurl + apis, function (err, data) {
+  getData(sonarrurl, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {

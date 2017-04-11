@@ -90,9 +90,9 @@ function htmlWriteInfo (movie) {
      disabledbutton = `success"`  
    }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="#"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="#"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
@@ -100,7 +100,7 @@ function htmlWriteInfo (movie) {
   return myHTML
 }
 $(function () {
-  getData(statusurl + apiv, function (err, data) {
+  getData(statusurl, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
