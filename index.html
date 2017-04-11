@@ -36,13 +36,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.html">Home</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#helpModal">Tips and Tricks</li>
         <li><a href="#" data-toggle="modal" data-target="#myModal">About the Project</a></li>
           </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<!-- Modal -->
+<!-- Modal About Project -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -87,25 +88,33 @@
   </div>
 </div>
 
-    <!-- Start Search Content -->
-
-    <div class="container">  
-      <div class="row">
-        <div class="panel panel-primary copyright-wrap" id="copyright-wrap">
-                    <div class="panel-heading">It's a Demo
-                        <button type="button" class="close" data-target="#copyright-wrap" data-dismiss="alert"> <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-
-                        </button>
-                    </div>
-                    <div class="panel-body">Just remember that this is a demo site, to show how it works, you can try searh for anything, but to see things that are in the libary try to search for
+<!-- Modal -->
+<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="helpModalLabel">Radarr & Sonarr Search Application (RSSA) HELP</h4>
+      </div>
+      <div class="modal-body">
+        <p>Just remember that this is a demo site, to show how it works, you can try searh for anything, but to see things that are in the libary try to search for
                       <ul>
                         <li>Home</li>
                         <li>Star Wars</li>
                         <li>Billions</li>
-                      </ul> These will show you in collection and not in collection.
-                    </a>
+                      </ul> These will show you in collection and not in collection.</p>
+       </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-                    </div></div>
+    <!-- Start Search Content -->
+
+    <div class="container">  
+      <div class="row">
       <div class="jumbotron vertical-center" id="search">
 
         <div class="row">
