@@ -12,8 +12,8 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
-	// getToken(); // testing the call to the API
-	// Function to pass between search and info
+  // getToken(); // testing the call to the API
+  // Function to pass between search and info
 function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
   axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
@@ -82,13 +82,11 @@ function htmlWriteInfo (movie) {
             ${movie.Plot}
             <hr>
             <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`
-  if (inCollection === 'true') 
-    { 
-     disabledbutton = `danger disabled" disabled` 
-   }
-  else { 
-     disabledbutton = `success"`  
-   }
+  if (inCollection === 'true') {
+    disabledbutton = `danger disabled" disabled`
+  } else {
+    disabledbutton = `success"`
+  }
   if (movie.Type !== 'series') {
     myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
@@ -172,13 +170,13 @@ function addToSeriesCollection () {
           var SeasonsLength = data2.seasons.length
           var seasonsText = '"seasons": ['
           // for each
-          Seasons.forEach(function (mySeason){
+          Seasons.forEach(function (mySeason) {
             var i = mySeason.season_number
             seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
-            if (i == Seasons[SeasonsLength - 1].season_number) {
+            if (i === Seasons[SeasonsLength - 1].season_number) {
               seasonsText += '} ],'
-            }
-            else { seasonsText += '},'
+            } else {
+              seasonsText += '},'
             }
           })
           var ajaxUrl = sonarrurl + apis
@@ -192,7 +190,7 @@ function addToSeriesCollection () {
             data: obj,
             success: function (data) { bootbox.alert('Added to collection') },
             error: function (xhr, textStatus, ex) {
-              if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
+              if (xhr.status === 201) { this.success(null, 'Created', xhr); return }
               $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
             },
             dataType: 'application/json'
