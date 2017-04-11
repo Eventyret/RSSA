@@ -103,6 +103,8 @@ var statusurl = 'http://YOURRADARRURL/movies/api/system/status/?apikey=' // Your
    - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
    Bigger Libary needs longer time (Not found a workaround for this yet.)
 
+Do you want to test it and see how it is?
+## [Demo here](https://eventyret.github.io/FrontEndProject)
 
 ## Technologies used
 
