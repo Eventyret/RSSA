@@ -60,9 +60,6 @@ $(document).ready(() => {
     }
   })
   this.data = moviesandtvshows
-})
-// Postback function to put searchText back to input
-$(window).load(function () {
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
   if (searchQuery != null && searchFor.length > 1) {
