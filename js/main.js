@@ -160,3 +160,6 @@ function movieSelected (id) {
   window.location = 'info.html?q=' + searchedFor
   return false
 }
+   $(window).load(function(){
+        $('#helpModal').modal('show');
+    });
