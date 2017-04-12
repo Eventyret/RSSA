@@ -5,118 +5,121 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radarr & Sonarr Search Application (RSSA)</title>
   <link rel="icon" href="favicon.ico">
-  <title>Movie & TV Series Information</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/nav.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="//bootswatch.com/flatly/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <div class="loader">
+  </div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Eventyret.uk (Radarr & Sonarr Search Application (RSSA))</a>
+        <a class="navbar-brand" href="index.html">Eventyret.uk</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#myModal">About the Project</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#myModal">About the Project</a></li>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Radarr & Sonarr Search Application (RSSA)</h4>
+        </div>
+        <div class="modal-body">
+          <h3>What is this app for?</h3>
+          <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr" target="_blank">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr"
+              target="_blank">Sonarr</a> from one dashboard or just from a search? Well look no further</p>
+          <h3>What does it do?</h3>
+          <p>You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection
+            if you want that.</p>
+          <p>The program does a search for data with OmDB for what you are searching for, then matches this with the information
+            from Radarr and Sonarr, and tells you if it is in your collection.<br> It matches this by using sizeonDisk and
+            IMDB titles. Using the API from Radarr and Sonarr to post to your collection.</p>
+          <h2>Features</h2>
+          <h3>Existing Features</h3>
+          <ul>
+            <li>Search for any Movie or TV Series</li>
+            <li>Add to movie collection</li>
+            <li>Grabs a random fanart at the first page. (if it exists)</li>
+            <li>Grabs the fanart for the movie you are looking in detail (if it exists)</li>
+            <li>Adds a placeholder image if there is no poster to display.</li>
+            <li>Button is disabled if you have it in your collection.</li>
+            <li>Url's are now stored as variables (Change your url in js/api.js.</li>
+            <li>Go back to search (Using Querystrings)</li>
           </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Radarr & Sonarr Search Application (RSSA)</h4>
-      </div>
-      <div class="modal-body">
-    <h3>What is this app for?</h3>
-    <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr" target="_blank">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr" target="_blank">Sonarr</a> from one dashboard or just from a search? Well look no further</p>
-    <h3>What does it do?</h3>
-    <p>You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection
-        if you want that.</p>
-    <p>The program does a search for data with OmDB for what you are searching for, then matches this with the information from
-        Radarr and Sonarr, and tells you if it is in your collection.<br> It matches this by using sizeonDisk and IMDB titles.
-        Using the API from Radarr and Sonarr to post to your collection.</p>
-    <h2>Features</h2>
-    <h3>Existing Features</h3>
-    <ul>
-        <li>Search for any Movie or TV Series</li>
-        <li>Add to movie collection</li>
-        <li>Grabs a random fanart at the first page. (if it exists)</li>
-        <li>Grabs the fanart for the movie you are looking in detail (if it exists)</li>
-        <li>Adds a placeholder image if there is no poster to display.</li>
-        <li>Button is disabled if you have it in your collection.</li>
-        <li>Url's are now stored as variables (Change your url in js/api.js.</li>
-        <li>Go back to search (Using Querystrings)</li>
-    </ul>
-    <h3>
-        <a id="FeaturesLeft"></a>Features Left to Implement</h3>
-    <ul>
-        <li>Add to series collection (This is currently not working due the API from TheTVDB)</li>
-        <li>Add POST API for TheTVDB to connect to their endpoint /login</li>
-        <li>Store the token and pass this to their API to get tvdbID to be used in info.js</li>
-    </ul>
-      <p>A full list and the project can be be found on <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <h3> Features Left to Implement</h3>
+          <ul>
+            <li>Add to series collection (This is currently not working due the API from TheTVDB)</li>
+            <li>Add POST API for TheTVDB to connect to their endpoint /login</li>
+            <li>Store the token and pass this to their API to get tvdbID to be used in info.js</li>
+          </ul>
+          <p>A full list and the project can be be found on
+            <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-    <!-- Start Search Content -->
-        <div class="container">
-            <div id="movie" class="well"></div>
-        </div>
-        <!--End Page-->
-        <!--Footer-->
-    <div class="navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <p class="navbar-text pull-left">© 2017 - Site Built By Simen Daehlin.
-          <a href="https://goo.gl/hd0pmr" target="_blank">HTML 5 Validation</a>
-        </p>
-        <div id="version" class="navbar-text pull-right">
-          <span class="glyphicon glyphicon-star"></span></div>
+  <!-- Displaying Single Movie or TV Series -->
+  <div class="container">
+    <div id="movie" class="well"></div>
+  </div>
+  <!--End Page-->
+
+  <!--Footer-->
+  <div class="navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+      <p class="navbar-text pull-left">© 2017 - Site Built By Simen Daehlin.
+        <a href="https://goo.gl/hd0pmr" target="_blank">HTML 5 Validation</a>
+      </p>
+      <div id="version" class="navbar-text pull-right">
+        <span class="glyphicon glyphicon-star"></span>
       </div>
     </div>
   </div>
   <!--End Footer-->
-  <!-- SCRIPTS -->
 
+  <!-- Start SCRIPTS -->
   <!-- JQuery & Bootstrap -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/libs/jquery.min.js"></script>
+  <script src="js/libs/bootstrap.min.js"></script>
   <!-- Axios http requests -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- My Own Magic -->
   <script src="js/api.js"></script>
   <script src="js/common.js"></script>
-  <script src="js/bootbox.min.js"></script>
+  <script src="js/libs/bootbox.min.js"></script>
   <!--<script src="js/thetvdb.js"></script>-->
   <script src="js/info.js"></script>
-  <script type="text/javascript">getMovie();</script>
+  <!-- Executing the getMovie function -->
+  <script>
+    getMovie();
+  </script>
   <!-- End of SCRIPTS -->
 
 </body>
