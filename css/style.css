@@ -1,27 +1,101 @@
+/*Importing Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/*Media Queries for responsive fonts*/
+@media all and (max-width: 1200px) {
+    body {
+        font-size: 1.33vw;
+    }
+}
+@media all and (max-width: 1000px) {
+    body {
+        font-size: 1.6em;
+        }
+}
+@media all and (max-width: 500px) {
+    body {
+        font-size: 3.2vw;
+        }
+}
+
+/*Common styles used on both pages*/
 body {
     background-color: #3E4551
 }
+h1 {
+	font-family: "Open Sans";
+    font-size: 5.9vw;
+}
+h3 {
+	font-family: "Open Sans";
+    font-size: 2.0vh;
+}
+p {
+	font-family: "Open Sans";
+	font-size: 2vmin;
+}
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(./img/loading.svg) 50% 50% no-repeat rgba(62,69,81,0.8);
+}
+
+.col-md-4 {
+    margin-bottom: 5px;
+}
+
+h5 .h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+.randombg {
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size:cover
+    
+}
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 5px
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    background-color: rgba(255,255,255, 0.8);
+}
+
+/*Used on index.html*/
+
 #movies img {
     height: 220px;
     width: 150px;
 }
+
+#movies .col-md-4 img {
+    height: 220px;
+}
+
+/*Used on info.html*/
+
 #movie .col-md-4 img {
     height: 390px;
     width: 100%;
 }
-#movies .col-md-4 img {
-    height: 220px;
-}
-.col-md-4 {
-    margin-bottom: 5px;
-}
-h5, .h5 {
-    font-size: 15px;
-    font-weight: 600;
-}
 #movieposter {
     margin-bottom: 15px;
 }
+
 .img-thumbnail {
     padding: 4px;
     line-height: 1.42857143;
@@ -41,78 +115,33 @@ h5, .h5 {
     padding-left: 0;
     padding: 25px;
 }
-.loader {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(../img/loading.svg) 50% 50% no-repeat rgba(62,69,81,0.8);
+.btn-space {
+    margin-right: 5px;
+}
+#rowplot {
+    margin-bottom: -10px;
 }
 
-.randombg {
-    min-height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size:cover
-    
-}
-.transparent {
-    background-color: rgba(255, 255, 255, 0); 
-}
-
-a:link {
-    text-decoration: none;
-}
-
-a:visited {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-a:active {
-    text-decoration: none;
-}
-.message {
-    border-radius: 15px;
-}
-.well {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 5px
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    background-color: rgba(255,255,255, 0.8);
-}
+/* Navbar */
 .navbar-fixed-bottom {
     bottom: -10px;
     margin-bottom: 0;
     border-width: 1px 0 0;
+    background-color: rgba(44, 62, 80, 0.32);
 }
-#poster {
-    margin-bottom: 5px;
-    padding-top: 100px;
-    padding-left: 50px;
-}
-#rowplot {
-    margin-bottom: -10px;
+.navbar-default {
+    background-color: rgba(44, 62, 80, 0.32);
+    border-color: transparent;
 }
 #maincontainer {
     margin-bottom: 50px;
 }
 #search {
     background-color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-
-.btn-space {
+#searchbutton {
     margin-right: 5px;
 }
