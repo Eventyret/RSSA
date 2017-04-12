@@ -90,9 +90,9 @@ function htmlWriteInfo (movie) {
      disabledbutton = `success"`  
    }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="#"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="#"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
@@ -110,7 +110,11 @@ $(function () {
   })
 })
 
-function addToMovieCollection () {
+function demoModal () {
+  bootbox.alert('This is a demo, but this would pop up and tell you it was added when it works.')
+};
+
+/* function addToMovieCollection () {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
@@ -202,4 +206,4 @@ function addToSeriesCollection () {
     }
   }
   )
-};
+}; */
