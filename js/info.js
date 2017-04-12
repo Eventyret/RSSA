@@ -111,10 +111,10 @@ $(function () {
 })
 
 function demoModal () {
-  bootbox.alert('This is a demo, but this would pop up and tell you it was added when it works.')
+  bootbox.alert('It was added to the DEMO collection')
 };
 
-/* function addToMovieCollection () {
+ function addToMovieCollection () {
   let movieId = sessionStorage.getItem('movieId')
   getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
     if (err !== null) {
@@ -206,4 +206,4 @@ function addToSeriesCollection () {
     }
   }
   )
-}; */
+};
