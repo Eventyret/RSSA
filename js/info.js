@@ -111,7 +111,7 @@ $(function () {
 })
 
 function demoModal () {
-  bootbox.alert('It was added to the DEMO collection')
+  bootbox.alert('You just added the movie to Radarr<br> Oh wait its just a demo...')
 };
 
  function addToMovieCollection () {
