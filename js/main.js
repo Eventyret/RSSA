@@ -177,3 +177,10 @@ function movieSelected (id) {
   window.location = 'info.html?q=' + searchedFor
   return false
 }
+
+// Modal for info
+$(document).ready(function () {
+
+    $('#demoModal').modal('show');
+
+});
