@@ -110,6 +110,7 @@ function getMovies (searchText) {
   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
     if (err != null) {
     } else {
+      debugger;
       let omdbData = response.data.Search
       let output = ''
       $.each(omdbData, (index, movie) => {
