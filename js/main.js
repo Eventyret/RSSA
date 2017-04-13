@@ -135,7 +135,7 @@ function htmlWriteResults (cases) {
   myHTML += `<img src="${posterError(cases.Poster)}">
               <h5 id="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
-                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-default btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
+                  <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
                 </div>
             </div>
           </div>

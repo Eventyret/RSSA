@@ -93,7 +93,7 @@ function htmlWriteInfo (movie) {
   }
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
-  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-primary btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`
   return myHTML
 }
 $(function () {
