@@ -15,9 +15,11 @@ var getData = function (url, callback) {
 	// getToken(); // testing the call to the API
 function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
-  axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
-    .then((response) => {
-      let movie = response.data
+  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data){
+    if(err != null) {
+      console.log(error)
+    }else {
+      let movie = data
       var apiurl = ''
       if (movie.Type === 'series') {
         var tvdbID = sessionStorage.getItem('tvdbID')
@@ -42,9 +44,7 @@ function getMovie () {
         }
       })
       $('#movie').html(htmlWriteInfo(movie))
-    })
-    .catch((error) => {
-      console.log(error)
+    }
     })
 };
 // Writes the info

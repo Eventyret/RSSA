@@ -107,11 +107,10 @@ function filterMovies (id) {
 
 // Search Function
 function getMovies (searchText) {
-  getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
+   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
     if (err != null) {
     } else {
-      debugger;
-      let omdbData = response.data.Search
+      let omdbData = response.Search
       let output = ''
       $.each(omdbData, (index, movie) => {
         output += htmlWriteResults(movie)
