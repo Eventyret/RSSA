@@ -51,6 +51,8 @@ Using the API from Radarr and Sonarr to post to your collection.
     - We use **Bootstrap** to give our project a simple, responsive layout
 - [Bootswatch Flatly](https://bootswatch.com)
     - We use just a simple theme from Bootswatch named **[Flatly](https://bootswatch.com/flatly/)**
+- [Bootbox.js](http://bootboxjs.com/)
+    - These are for the alert boxes made into modal.
 
 ## Thanks to
 
@@ -103,6 +105,8 @@ var statusurl = 'http://YOURRADARRURL/movies/api/system/status/?apikey=' // Your
    - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
    Bigger Libary needs longer time (Not found a workaround for this yet.)
 
+Do you want to test it and see how it is?
+## [Demo here](https://eventyret.github.io/FrontEndProject)
 
 ## Technologies used
 
