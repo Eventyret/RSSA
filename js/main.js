@@ -107,8 +107,9 @@ function filterMovies (id) {
 
 // Search Function
 function getMovies (searchText) {
-  axios.get('https://www.omdbapi.com/?s=' + searchText)
-    .then((response) => {
+  getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
+    if (err != null) {
+    } else {
       let omdbData = response.data.Search
       let output = ''
       $.each(omdbData, (index, movie) => {
@@ -116,10 +117,7 @@ function getMovies (searchText) {
       })
 
       $('#movies').html(output)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    }})
 }
 
 // Writes the Search Results
