@@ -74,7 +74,7 @@ Using the API from Radarr and Sonarr to post to your collection.
 
 ### Dependencies
 - [Radarr](https://github.com/Radarr/Radarr) (This needs to be present and installed)
-- [Sonarr](https://github.com/Sonarr/Sonarr) (*This is **optional** and will match for series*)
+- [Sonarr](https://github.com/Sonarr/Sonarr) (*This is **optional** and will match for series if installed*)
  
 ### Getting the code up and running
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
@@ -92,14 +92,13 @@ var radarrurl = 'http://YOURRADARRURL/api/movie/?apikey=' // Your Radarr URL
 var sonarrurl = 'http://YOURSONARRURL/api/series/?apikey=' // Your Sonarr URL
 var statusurl = 'http://YOURRADARRURL/api/system/status/?apikey=' // Your Radarr URL
 ```
-4.In main.js replace your url
 
 - You can find the API codes for **Radarr** and **Sonarr** in their ``/settings/general`` section.
     - API codes for **FanArt.tv** **TheMovieDB** you will need an account for. (Free)
         - [Fanart.tv](https://fanart.tv/get-an-api-key/)
         - [TheMovieDB](https://www.themoviedb.org/settings/api)
         - [TheTVDB](http://thetvdb.com/)
-3. All Done. Thats it you can now just go to your URL and its ready to be used
+4. All Done. Thats it you can now just go to your URL and its ready to be used
 
 - You can select the time it takes to load the page in `/js/common.js`
    - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
