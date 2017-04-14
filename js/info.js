@@ -15,10 +15,10 @@ var getData = function (url, callback) {
 	// getToken(); // testing the call to the API
 function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
-  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data){
-    if(err != null) {
-      console.log(error)
-    }else {
+  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
+    if (err != null) {
+      console.log(err)
+    } else {
       let movie = data
       var apiurl = ''
       if (movie.Type === 'series') {
@@ -45,7 +45,7 @@ function getMovie () {
       })
       $('#movie').html(htmlWriteInfo(movie))
     }
-    })
+  })
 };
 // Writes the info
 function htmlWriteInfo (movie) {
@@ -137,9 +137,9 @@ function addToMovieCollection () {
         data: obj,
         success: function (data) { bootbox.alert('Added to collection') },
         error: function (xhr, textStatus, ex) {
-           if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
-           $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
-         },
+          if (xhr.status === 201) { this.success(null, 'Created', xhr); return }
+          $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
+        },
         dataType: 'application/json'
       })
     }
@@ -173,7 +173,7 @@ function addToSeriesCollection () {
           var SeasonsLength = data2.seasons.length
           var seasonsText = '"seasons": ['
           // for each
-          Seasons.forEach(function (mySeason){
+          Seasons.forEach(function (mySeason) {
             var i = mySeason.season_number
             seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
             if (i === Seasons[SeasonsLength - 1].season_number) {

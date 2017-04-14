@@ -107,7 +107,7 @@ function filterMovies (id) {
 
 // Search Function
 function getMovies (searchText) {
-   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
+  getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
     if (err != null) {
     } else {
       let omdbData = response.Search
@@ -117,7 +117,8 @@ function getMovies (searchText) {
       })
 
       $('#movies').html(output)
-    }})
+    }
+  })
 }
 
 // Writes the Search Results
@@ -178,7 +179,5 @@ function movieSelected (id) {
 
 // Modal for info
 $(document).ready(function () {
-
-    $('#demoModal').modal('show');
-
-});
+  $('#demoModal').modal('show')
+})
