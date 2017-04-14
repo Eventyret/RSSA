@@ -74,7 +74,7 @@ Using the API from Radarr and Sonarr to post to your collection.
 
 ### Dependencies
 - [Radarr](https://github.com/Radarr/Radarr) (This needs to be present and installed)
-- [Sonarr](https://github.com/Sonarr/Sonarr) (This is optional match for series)
+- [Sonarr](https://github.com/Sonarr/Sonarr) (*This is **optional** and will match for series*)
  
 ### Getting the code up and running
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
@@ -89,8 +89,8 @@ var tvdbapikey = '' // TheTVDB API KEY
 var tvdbuserkey = '' // TheTVDB Account Identifier
 var tvdbusername = '' // Your TheTVDB username 
 var radarrurl = 'http://YOURRADARRURL/api/movie/?apikey=' // Your Radarr URL
-var sonarrurl = 'http://YOURSONARRURL/series/api/series/?apikey=' // Your Sonarr URL
-var statusurl = 'http://YOURRADARRURL/movies/api/system/status/?apikey=' // Your Radarr URL
+var sonarrurl = 'http://YOURSONARRURL/api/series/?apikey=' // Your Sonarr URL
+var statusurl = 'http://YOURRADARRURL/api/system/status/?apikey=' // Your Radarr URL
 ```
 4.In main.js replace your url
 
