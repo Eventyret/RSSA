@@ -30,7 +30,7 @@ $(document).ready(() => {
 
   var moviesandtvshows = [];
 
-  getData(statusurl, function (err, data) {
+  getData(STATUSURL, function (err, data) {
     if (err !== null) {
       console.log('Something went wrong: ' + err);
     } else {
@@ -39,7 +39,7 @@ $(document).ready(() => {
     }
   });
 
-  getData(radarrurl, function (err, data) {
+  getData(RADARRURL, function (err, data) {
     if (err !== null) {
       MovieListLoaded = true;
     } else {
@@ -50,7 +50,7 @@ $(document).ready(() => {
       var min = 0;
       var random = Math.floor(Math.random() * (max - min + 1)) + min;
       var randomID = data[random].imdbId;
-      getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
+      getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + FANARTAPI, function (err, image) {
 
         if (err !== null || !image.moviebackground) {
           document.body.style.backgroundColor = '#3E4551';
@@ -69,7 +69,7 @@ $(document).ready(() => {
     }
   });
 
-  getData(sonarrurl, function (err, data) {
+  getData(SONARRURL, function (err, data) {
     if (err !== null) {
       SeriersListLoaded = true;
       console.log('Something went wrong: ' + err);
