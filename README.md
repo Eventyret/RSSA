@@ -37,13 +37,10 @@ Using the API from Radarr and Sonarr to post to your collection.
 - Go back to search (Using Querystrings)
 
 ### In Progress
-- Created `js/thetvdb.js` to test TheTVDB Api post function.
  
 ### Features Left to Implement
 - Add to series collection (**This is currently not working due the API from TheTVDB**)
     - Add  POST API for TheTVDB to connect to their endpoint /login
-    - Store the token and pass this to their API to get tvdbID to be used in `info.js`
-
  
 ## Tech Used
 ### Some the tech used includes:
