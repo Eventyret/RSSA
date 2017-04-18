@@ -1,7 +1,9 @@
-/*Importing Google Fonts*/
+/* Importing Google Fonts */
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-/*Media Queries for responsive fonts*/
+/* Media Queries for responsive fonts */
+
 @media all and (max-width: 1200px) {
     body {
         font-size: 1.33vw;
@@ -21,7 +23,8 @@ html {
    height: 100%;
 }
 
-/*Common styles used on both pages*/
+/* Common styles used on both pages */
+
 body {
     min-height: 100%;
     background-color: #3E4551
@@ -86,7 +89,7 @@ a:link, a:visited, a:hover, a:active {
     color: rgba(255,255,255, 1);
 }
 
-/*Used on index.html*/
+/* Used on index.html */
 
 #movies img {
     height: 220px;
@@ -97,7 +100,7 @@ a:link, a:visited, a:hover, a:active {
     height: 220px;
 }
 
-/*Used on info.html*/
+/* Used on info.html */
 
 #movie .col-md-4 img {
     height: 390px;
@@ -137,6 +140,7 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Navbar */
+
 .navbar-fixed-bottom {
     bottom: -10px;
     margin-bottom: 0;
