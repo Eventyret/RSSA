@@ -12,13 +12,13 @@ var getData = function (url, callback) {
   }
   xhr.send()
 }
-  // getToken(); // testing the call to the API
-  // Function to pass between search and info
 function getMovie () {
   let movieId = sessionStorage.getItem('movieId')
-  axios.get('https://www.omdbapi.com/?i=' + movieId + '&plot=full')
-    .then((response) => {
-      let movie = response.data
+  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
+    if (err != null) {
+      console.log(err)
+    } else {
+      let movie = data
       var apiurl = ''
       if (movie.Type === 'series') {
         var tvdbID = sessionStorage.getItem('tvdbID')
@@ -43,10 +43,8 @@ function getMovie () {
         }
       })
       $('#movie').html(htmlWriteInfo(movie))
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+    }
+  })
 };
 // Writes the info
 function htmlWriteInfo (movie) {
@@ -58,7 +56,7 @@ function htmlWriteInfo (movie) {
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
               <div class="col-md-8">
-              <h2 class="text-center">${movie.Title}</h2>
+              <h2 class="text-center" id="movietitle">${movie.Title}</h2>
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
                   <li class="list-group-item"><strong><i class="fa fa-calendar"></i> Released:</strong> ${movie.Released}</li>
@@ -88,17 +86,17 @@ function htmlWriteInfo (movie) {
     disabledbutton = `success"`
   }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="addToMovieCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="addToSeriesCollection()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`
   }
   var searchFor = window.location.href.split('?q=')
   var searchQuery = searchFor[1]
-  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-primary btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`
   return myHTML
 }
 $(function () {
-  getData(statusurl + apiv, function (err, data) {
+  getData(statusurl, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -108,96 +106,6 @@ $(function () {
   })
 })
 
-function addToMovieCollection () {
-  let movieId = sessionStorage.getItem('movieId')
-  getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
-    if (err !== null) {
-      console.log('Something went wrong: ' + err)
-    } else {
-      var title = data.movie_results[0].title
-      var profileId = 6
-      var year = data.movie_results[0].release_date.substring(0, 4)
-      var id = data.movie_results[0].id
-      var titleSlug = title.replace(/\s+/g, '-')
-      titleSlug = titleSlug + '-' + id
-      titleSlug = titleSlug.toLowerCase()
-      var rootFolderPath = '/media/Movies/Movies/'
-      var poster = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].poster_path
-      var backdrop = 'https://image.tmdb.org/t/p/original' + data.movie_results[0].backdrop_path
-      var ajaxUrl = radarrurl + apiv
-      var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-        '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tmdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "year": "' + year + '", "minimumAvailability": "announced", "monitored": true }'
-      $.ajax({
-        type: 'POST',
-        url: ajaxUrl,
-        contentType: 'application/json',
-        data: obj,
-        success: function (data) { bootbox.alert('Added to collection') },
-        error: function (xhr, textStatus, ex) {
-          if (xhr.status == 201) { this.success(null, 'Created', xhr); return }
-          $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
-        },
-        dataType: 'application/json'
-      })
-    }
-  }
-  )
-};
-
-function addToSeriesCollection () {
-  let movieId = sessionStorage.getItem('movieId')
-  getData('https://api.themoviedb.org/3/find/' + movieId + '?external_source=imdb_id&language=en-US&api_key=' + tmdbapi, function (err, data) {
-    if (err !== null) {
-      console.log('Something went wrong: ' + err)
-    } else {
-      var title = data.tv_results[0].original_name
-      var profileId = 6
-      var monitored = true
-      // var year = data.movie_results[0].release_date.substring(0, 4)
-      var id = data.tv_results[0].id
-      var titleSlug = title.replace(/\s+/g, '-')
-      titleSlug = titleSlug + '-' + id
-      titleSlug = titleSlug.toLowerCase()
-      var rootFolderPath = '/media/Movies/Series/'
-      var poster = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].poster_path
-      var backdrop = 'https://image.tmdb.org/t/p/original' + data.tv_results[0].backdrop_path
-
-      getData('https://api.themoviedb.org/3/tv/' + id + '?api_key=' + tmdbapi, function (err, data2) {
-        if (err !== null) {
-          console.log('Something wnet wrong: ' + err)
-        } else {
-          var Seasons = data2.seasons
-          var SeasonsLength = data2.seasons.length
-          var seasonsText = '"seasons": ['
-          // for each
-          Seasons.forEach(function (mySeason) {
-            var i = mySeason.season_number
-            seasonsText += '{ "seasonNumber": ' + i + ',"monitored": true'
-            if (i === Seasons[SeasonsLength - 1].season_number) {
-              seasonsText += '} ],'
-            } else {
-              seasonsText += '},'
-            }
-          })
-          var ajaxUrl = sonarrurl + apis
-          var obj = '{ "title": "' + title + '", "qualityProfileId": ' + profileId + ', "titleSlug": "' + titleSlug + '", "images": [{ "coverType": "poster",' +
-            '"url": "' + poster + '"},{"coverType": "banner","url": "' + backdrop + '"}], "tvdbId": ' + id + ', "rootFolderPath": "' + rootFolderPath + '", "minimumAvailability": "announced", "seasonFolder": true, "seriesType": "standard", ' + seasonsText +
-            '"addOptions":{"ignoreEpisodesWithoutFiles": true}} '
-          $.ajax({
-            type: 'POST',
-            url: ajaxUrl,
-            contentType: 'application/json',
-            data: obj,
-            success: function (data) { bootbox.alert('Added to collection') },
-            error: function (xhr, textStatus, ex) {
-              if (xhr.status === 201) { this.success(null, 'Created', xhr); return }
-              $('#ajaxreply').text(textStatus + ',' + ex + ',' + xhr.responseText)
-            },
-            dataType: 'application/json'
-          })
-        }
-      })
-    }
-  }
-  )
+function demoModal () {
+  bootbox.alert('You just added the movie to Radarr<br> Oh wait its just a demo...')
 };

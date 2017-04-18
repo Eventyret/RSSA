@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0.588",
+  "buildTime": "2017-04-10T14:12:59Z",
+  "isDebug": false,
+  "isProduction": true,
+  "isAdmin": false,
+  "isUserInteractive": false,
+  "startupPath": "/opt/radarr",
+  "appData": "/home/pi/.config/Radarr",
+  "osVersion": "4.4.0.67",
+  "isMonoRuntime": true,
+  "isMono": true,
+  "isLinux": true,
+  "isOsx": false,
+  "isWindows": false,
+  "branch": "nightly",
+  "authentication": "forms",
+  "sqliteVersion": "3.11.0",
+  "urlBase": "/movies",
+  "runtimeVersion": "4.8.0 (Stable 4.8.0.524/9d74414 Wed Apr  5 17:57:04 UTC 2017)"
+}

@@ -17,9 +17,16 @@
         font-size: 3.2vw;
         }
 }
+<<<<<<< HEAD
+=======
+html {
+   height: 100%;
+}
+>>>>>>> gh-pages
 
 /*Common styles used on both pages*/
 body {
+    min-height: 100%;
     background-color: #3E4551
 }
 h1 {
@@ -41,7 +48,7 @@ p {
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
-	background: url(./img/loading.svg) 50% 50% no-repeat rgba(62,69,81,0.8);
+	background: url(../img/loading.svg) 50% 50% no-repeat rgba(62,69,81,0.8);
 }
 
 .col-md-4 {
@@ -52,13 +59,17 @@ h5 .h5 {
     font-size: 15px;
     font-weight: 600;
 }
+#whiteheader {
+    color: rgba(255,255,255, 1);
+}
 .randombg {
     min-height: 100%;
-    background-attachment: fixed;
-    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    -webkit-background-size:cover
     
 }
 a:link, a:visited, a:hover, a:active {
@@ -72,7 +83,10 @@ a:link, a:visited, a:hover, a:active {
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    background-color: rgba(255,255,255, 0.8);
+    background-color: rgba(44, 62, 80, 0.32);
+}
+#movietitle {
+    color: rgba(255,255,255, 1);
 }
 
 /*Used on index.html*/
@@ -94,6 +108,7 @@ a:link, a:visited, a:hover, a:active {
 }
 #movieposter {
     margin-bottom: 15px;
+    margin-top: 12vh;
 }
 
 .img-thumbnail {
@@ -120,6 +135,8 @@ a:link, a:visited, a:hover, a:active {
 }
 #rowplot {
     margin-bottom: -10px;
+    color: rgba(255,255,255, 1);
+    background-color: rgba(44, 62, 80, 0.32);
 }
 
 /* Navbar */
@@ -137,7 +154,7 @@ a:link, a:visited, a:hover, a:active {
     margin-bottom: 50px;
 }
 #search {
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(44, 62, 80, 0.32);
     margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;

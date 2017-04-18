@@ -24,7 +24,7 @@ $(document).ready(() => {
 
   let moviesandtvshows = []
 
-  getData(statusurl + apiv, function (err, data) {
+  getData(statusurl, function (err, data) {
     if (err != null) {
       console.log('Something went wrong: ' + err)
     } else {
@@ -33,7 +33,7 @@ $(document).ready(() => {
     }
   })
 
-  getData(radarrurl + apiv, function (err, data) {
+  getData(radarrurl, function (err, data) {
     if (err != null) {
       MovieListLoaded = true
     } else {
@@ -45,7 +45,7 @@ $(document).ready(() => {
       var random = Math.floor(Math.random() * (max - min + 1)) + min
       var randomID = data[random].imdbId
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
-        if (err != null) {
+        if (err != null || !image.moviebackground) {
           document.body.style.backgroundColor = '#3E4551'
         } else {
           max = image.moviebackground.length
@@ -62,7 +62,7 @@ $(document).ready(() => {
     }
   })
 
-  getData(sonarrurl + apis, function (err, data) {
+  getData(sonarrurl, function (err, data) {
     if (err != null) {
       SeriersListLoaded = true
       console.log('Something went wrong: ' + err)
@@ -107,19 +107,18 @@ function filterMovies (id) {
 
 // Search Function
 function getMovies (searchText) {
-  axios.get('https://www.omdbapi.com/?s=' + searchText)
-    .then((response) => {
-      let omdbData = response.data.Search
+  getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
+    if (err != null) {
+    } else {
+      let omdbData = response.Search
       let output = ''
       $.each(omdbData, (index, movie) => {
         output += htmlWriteResults(movie)
       })
 
       $('#movies').html(output)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+    }
+  })
 }
 
 // Writes the Search Results
@@ -133,7 +132,7 @@ function htmlWriteResults (cases) {
     myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><i class="fa fa-exclamation-triangle"></i> Not in Collection</div>`
   }
   myHTML += `<img src="${posterError(cases.Poster)}">
-              <h5>${cases.Title} (${cases.Year.substring(0, 4)})</h5>
+              <h5 id="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
                   <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
                 </div>
@@ -177,3 +176,8 @@ function movieSelected (id) {
   window.location = 'info.html?q=' + searchedFor
   return false
 }
+
+// Modal for info
+$(document).ready(function () {
+  $('#demoModal').modal('show')
+})
