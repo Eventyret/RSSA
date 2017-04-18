@@ -8,3 +8,5 @@ var tvdbusername = '' // Your TheTVDB username
 var radarrurl = './demodata/movies.json' // Your Radarr URL
 var sonarrurl = './demodata/series.json' // Your Sonarr URL
 var statusurl = './demodata/status.json' // Your Radarr URL with /api/system/status
+
+//make capital

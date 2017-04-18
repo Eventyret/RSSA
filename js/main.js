@@ -45,7 +45,7 @@ $(document).ready(() => {
       var random = Math.floor(Math.random() * (max - min + 1)) + min
       var randomID = data[random].imdbId
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
-        if (err != null) {
+        if (err != null || !image.moviebackground) {
           document.body.style.backgroundColor = '#3E4551'
         } else {
           max = image.moviebackground.length
