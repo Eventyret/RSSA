@@ -10,6 +10,12 @@ var getData = function (url, callback) {
       callback(status)
     }
   }
+  xhr.onerror = function() {
+    var status = xhr.status
+    if (status in [400, 404, 405]){
+      console.log('Request Failed with status ' + status)
+    }
+  }
   xhr.send()
 }
 var MovieListLoaded = false
@@ -45,6 +51,7 @@ $(document).ready(() => {
       var random = Math.floor(Math.random() * (max - min + 1)) + min
       var randomID = data[random].imdbId
       getData('https://webservice.fanart.tv/v3/movies/' + randomID + '?api_key=' + apifan, function (err, image) {
+
         if (err != null || !image.moviebackground) {
           document.body.style.backgroundColor = '#3E4551'
         } else {
