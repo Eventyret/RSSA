@@ -10,15 +10,16 @@ var getData = function (url, callback) {
       callback(status);
     }
   };
-  xhr.onerror = function() {
+  xhr.onerror = function () {
     var status = xhr.status;
-    if (status in [400, 404, 405]){
+    if (status in [400, 404, 405]) {
       console.log('Request Failed with status ' + status);
     }
   };
   xhr.send();
 };
-function getMovie () {
+
+function getMovie() {
   var movieId = sessionStorage.getItem('movieId');
   getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
     if (err !== null) {
@@ -54,7 +55,7 @@ function getMovie () {
 }
 
 // Writes the info
-function htmlWriteInfo (movie) {
+function htmlWriteInfo(movie) {
   var disabledbutton = '';
   var inCollection = sessionStorage.getItem('inCollection');
   var myHTML = '';
@@ -113,6 +114,6 @@ $(function () {
   });
 });
 
-function demoModal () {
+function demoModal() {
   bootbox.alert('You just added the movie to Radarr<br> Oh wait its just a demo...');
 }

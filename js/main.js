@@ -10,9 +10,9 @@ var getData = function (url, callback) {
       callback(status);
     }
   };
-  xhr.onerror = function() {
+  xhr.onerror = function () {
     var status = xhr.status;
-    if (status in [400, 404, 405]){
+    if (status in [400, 404, 405]) {
       console.log('Request Failed with status ' + status);
     }
   };
@@ -43,7 +43,9 @@ $(document).ready(() => {
     if (err !== null) {
       MovieListLoaded = true;
     } else {
-      moviesandtvshows.push({ 'movies': data });
+      moviesandtvshows.push({
+        'movies': data
+      });
       MovieListLoaded = true;
       searchIt();
       var max = data.length;
@@ -74,7 +76,9 @@ $(document).ready(() => {
       SeriersListLoaded = true;
       console.log('Something went wrong: ' + err);
     } else {
-      moviesandtvshows.push({ 'series': data });
+      moviesandtvshows.push({
+        'series': data
+      });
       SeriersListLoaded = true;
       searchIt();
     }
@@ -83,7 +87,7 @@ $(document).ready(() => {
   this.data = moviesandtvshows;
 });
 
-function searchIt () {
+function searchIt() {
   if (MovieListLoaded && SeriersListLoaded) {
     var searchFor = window.location.href.split('?q=');
     var searchQuery = searchFor[1];
@@ -96,7 +100,7 @@ function searchIt () {
 }
 
 // Loops checks if movie is in collection
-function filterMovies (id) {
+function filterMovies(id) {
   var isDownloaded = false;
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -113,10 +117,9 @@ function filterMovies (id) {
 }
 
 // Search Function
-function getMovies (searchText) {
+function getMovies(searchText) {
   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
-    if (err !== null) {
-    } else {
+    if (err !== null) {} else {
       var omdbData = response.Search;
       var output = '';
       $.each(omdbData, (index, movie) => {
@@ -129,7 +132,7 @@ function getMovies (searchText) {
 }
 
 // Writes the Search Results
-function htmlWriteResults (cases) {
+function htmlWriteResults(cases) {
   var myHTML = '';
   myHTML += `<div class="col-md-4">
             <div class="well text-center">`;
@@ -151,7 +154,7 @@ function htmlWriteResults (cases) {
 
 // Check for tvdbID
 
-function getTvdb (id) {
+function getTvdb(id) {
   var tvdbid = '';
   this.data.forEach(function (type) {
     [type].forEach(function (entry) {
@@ -168,7 +171,7 @@ function getTvdb (id) {
 }
 
 // Set storage Items
-function movieSelected (id) {
+function movieSelected(id) {
   var tvdbID = getTvdb(id);
   if (tvdbID !== '') {
     sessionStorage.setItem('tvdbID', tvdbID);
