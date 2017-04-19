@@ -8,7 +8,7 @@ Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https:
 
 ### What does it do?
  
-You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection if you want that.
+You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection if it's not present in your collection.
  
 ### How does it work
  
@@ -19,12 +19,18 @@ This app uses the API's from the following ressources
 - FanartTV
 
 RSSA will compare the result you are searching for with what you already have in your collection.
-It matches this by using *sizeonDisk* and *IMDB titles*. It will use Radarr and Sonarr's API to post to your collection.
+It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
+
+It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title*. 
+
+It will use Radarr and Sonarr's API to post to your collection.
+
+---
 
 ## Features
  
 ### Existing Features
-- Search for any Movie or TV Series
+- Search for any Movie or TV Show
 - Add to a movie to your Radarr collection
 - Grabs a random fanart at the first page. (if it exists)
 - Grabs the fanart for the movie you are looking in detail. (if it exists)
@@ -34,7 +40,6 @@ It matches this by using *sizeonDisk* and *IMDB titles*. It will use Radarr and 
 ### In Progress
  
 ### Features Left to Implement
-- Add to series collection (**This is currently not working due the API from TheTVDB**)
  
 ## Tech Used
 ### Some the tech used includes:
@@ -75,17 +80,16 @@ var SONARRURL = './demodata/series.json' // Your Sonarr URL
 var STATUSURL = './demodata/status.json' // Your Radarr URL /api/status
 ```
 
-- You can find the API codes for **Radarr** and **Sonarr** in their ``/settings/general`` section.
- For assistance on their URL and examples using their API:
-    - [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API) 
-    - [Sonarr Github Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
+
+- [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API) 
+- [Sonarr Github Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - API codes for **FanArt.tv** you will need an account for and its free.
     - [Fanart.tv](https://fanart.tv/get-an-api-key/)
 3. All Done. Thats it you can now just go to your URL and its ready to be used
 
 - You can select the time it takes to load the page in `/js/common.js`
    - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
-   - Bigger Libary needs longer time (Not found a workaround for this yet.)
+   - Bigger Libary needs longer time.
 
 Do you want to test it and see how it is?
 ## [Demo here](https://eventyret.github.io/FrontEndProject)
