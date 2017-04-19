@@ -3,7 +3,7 @@ let data = []
 // Checks for poster
 function posterError (poster) {
   if (poster === 'N/A') {
-    return 'img/poster-dark.png'
+    return 'img/poster.png'
   } else {
     return poster
   }
