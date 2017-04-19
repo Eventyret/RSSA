@@ -1,28 +1,28 @@
-let data = []
+var data = [];
 
 // Checks for poster
 function posterError (poster) {
   if (poster === 'N/A') {
-    return 'img/poster.png'
+    return 'img/poster.png';
   } else {
-    return poster
+    return poster;
   }
 }
 // Create First letter uppercase
 function upperFirst (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-};
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 // Loading Animation
 $(document).ready(function () {
-  $('.loader').show()
-})
+  $('.loader').show();
+});
 
 setTimeout(function () {
-  $('.loader').hide()
-}, 6000)
+  $('.loader').hide();
+}, 6000);
 
 // Tooltip function
 $(document).ready(function () {
-  $('body').tooltip({ selector: '[data-toggle=tooltip]' })
-})
+  $('body').tooltip({ selector: '[data-toggle=tooltip]' });
+});
