@@ -196,3 +196,7 @@ function dismissDemo(){
  localStorage.setItem('introdismissed', true);
     $('#demoModal').modal('hide');
 }
+function showDemo(){
+  localStorage.setItem('introdismissed', false);
+  $('#demoModal').modal('show');
+}
