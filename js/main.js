@@ -30,15 +30,6 @@ $(document).ready(() => {
 
   var moviesandtvshows = [];
 
-  getData(STATUSURL, function (err, data) {
-    if (err !== null) {
-      console.log('Something went wrong: ' + err);
-    } else {
-      var myDate = new Date(data.buildTime);
-      $('#version').html(`<i class="fa fa-info-circle"></i> Version` + ' ' + data.version + ' ' + 'Latest Build Date: ' + myDate.getDate() + '/' + (myDate.getMonth() + 1) + '/' + myDate.getFullYear());
-    }
-  });
-
   getData(RADARRURL, function (err, data) {
     if (err !== null) {
       MovieListLoaded = true;
