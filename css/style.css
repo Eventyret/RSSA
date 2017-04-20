@@ -26,6 +26,8 @@ html {
 /* Common styles used on both pages */
 
 body {
+    font-family: "Open Sans";
+	font-size: 1em;
     min-height: 100%;
     background-color: #3E4551
 }
