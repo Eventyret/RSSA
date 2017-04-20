@@ -183,11 +183,12 @@ function movieSelected(id) {
 // Validate the form
 function formValidation() {
     var x = document.forms["searchForm"]["searchText"].value;
-    if (x == "") {
+    if (x === "") {
         bootbox.alert("Can't be blank");
         return false;
     }
 }
+
 // Modal for info
 $(document).ready(function () {
   $('#demoModal').modal('show');
