@@ -121,12 +121,12 @@ a:link, a:visited, a:hover, a:active {
 
 /*Used on info.html*/
 
-#movie .col-xs-4 img {
+#movie .col-md-4 img {
     height: 390px;
 }
 #movieposter {
     margin-bottom: 15px;
-    margin-top: 9.2vh;
+    margin-top: 9.7vh;
     margin-left: 20px;
 }
 
