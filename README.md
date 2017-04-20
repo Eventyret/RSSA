@@ -57,7 +57,7 @@ This app uses the API's from the following ressources
 - [Radarr](https://github.com/Radarr/Radarr)
     - Fork of Sonarr, but for movies
 - [Sonarr](https://github.com/Sonarr/Sonarr)
-    - Using NZB and Torrents to keep your TV Show libary up to date.
+    - Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
 - [FanArt.tv](https://www.fanart.tv)
     - Providing the API for Backdrops
 - [The Open Movie Database](https://www.omdbapi.com/)
@@ -65,20 +65,21 @@ This app uses the API's from the following ressources
 
 ## Contributing
 
-### Dependencies
+### Requirements
 - [Radarr](https://github.com/Radarr/Radarr) (This needs to be present and installed)
-- [Sonarr](https://github.com/Sonarr/Sonarr) (*This is **optional** and will match for series if installed*)
+- [Sonarr](https://github.com/Sonarr/Sonarr) (*This is **optional** and will match for tv shows if installed*)
  
-### Getting the code up and running
+### Setup
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
-2. Reaplce variables with your API codes and respective urls
+2. Replace the **RadarUrl** with your own radarurl and apikey.
+
 ```javascript 
 var FANARTAPI = '' // FanArt.tv API KEY
 var RADARRURL = './demodata/movies.json' // Your Radarr URL
 var SONARRURL = './demodata/series.json' // Your Sonarr URL 
 ```
 
-
+Information regarding their API and URL's can be found below.
 - [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API) 
 - [Sonarr Github Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - API codes for **FanArt.tv** you will need an account for and its free.
@@ -89,8 +90,7 @@ var SONARRURL = './demodata/series.json' // Your Sonarr URL
    - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
    - Bigger Libary needs longer time.
 
-Do you want to test it and see how it is?
-## [Demo here](https://eventyret.github.io/FrontEndProject)
+# Do you want to test it and see how it is? [Demo here](https://eventyret.github.io/FrontEndProject)
 
 ## Technologies used
 
