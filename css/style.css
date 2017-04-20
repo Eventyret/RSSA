@@ -28,14 +28,21 @@ body {
 }
 h1 {
 	font-family: "Open Sans";
+    /* Fallback */
+    font-size: 36px;
+
     font-size: 5.9vw;
 }
 h3 {
 	font-family: "Open Sans";
+    /*Fallback*/
+    font-size: 15px;
     font-size: 2.0vh;
 }
-p {
+p li ul {
 	font-family: "Open Sans";
+    /*** Fallback ***/
+    font-size: 16px;
 	font-size: 2vmin;
 }
 .loader {
