@@ -87,7 +87,7 @@ function htmlWriteInfo(movie) {
             <h3>Plot</h3>
             ${movie.Plot}
             <hr>
-            <a href="//imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`;
+            <a href="//www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`;
   if (inCollection === 'true') {
     disabledbutton = `danger disabled" disabled`;
   } else {
