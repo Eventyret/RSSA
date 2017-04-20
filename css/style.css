@@ -29,16 +29,28 @@ body {
 h1 {
 	font-family: "Open Sans";
     /* Fallback */
-    font-size: 36px;
+    font-size: 40px;
 
     font-size: 5.9vw;
+}
+h2 {
+    font-family: "Open Sans";
+    /*Fallback*/
+    font-size: 32px;
 }
 h3 {
 	font-family: "Open Sans";
     /*Fallback*/
-    font-size: 15px;
-    font-size: 2.0vh;
+    font-size: 28px;
 }
+h4 {
+    font-size: 24px
+}
+h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
 p li ul {
 	font-family: "Open Sans";
     /*** Fallback ***/
@@ -59,10 +71,7 @@ p li ul {
     margin-bottom: 5px;
 }
 
-h5 .h5 {
-    font-size: 15px;
-    font-weight: 600;
-}
+
 #whiteheader {
     color: rgba(255,255,255, 1);
 }
