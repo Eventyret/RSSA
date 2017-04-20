@@ -103,16 +103,6 @@ function htmlWriteInfo(movie) {
   myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML;
 }
-$(function () {
-  getData(STATUSURL, function (err, data) {
-    if (err !== null) {
-      console.log('Something went wrong: ' + err);
-    } else {
-      var myDate = new Date(data.buildTime);
-      $('#version').html(`<i class="fa fa-info-circle"></i> Version` + ' ' + data.version + ' ' + 'Build Time: ' + myDate.getDate() + '/' + (myDate.getMonth() + 1) + '/' + myDate.getFullYear());
-    }
-  });
-});
 
 function demoModal() {
   bootbox.alert('You just added the movie to Radarr<br> Oh wait its just a demo...');
