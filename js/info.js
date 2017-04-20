@@ -60,7 +60,7 @@ function htmlWriteInfo(movie) {
   var inCollection = sessionStorage.getItem('inCollection');
   var myHTML = '';
   myHTML += `<div class="row">
-            <div class="col-md-4" id="poster">
+            <div class="col-md-4 center-block" id="poster">
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
               <div class="col-md-8">
