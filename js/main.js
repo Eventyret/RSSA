@@ -7,7 +7,7 @@ var getData = function (url, callback) {
     if (status === 200) {
       callback(null, xhr.response);
     } else {
-      callback(status);
+      callback(status, xhr.response);
     }
   };
   xhr.onerror = function () {
@@ -110,7 +110,10 @@ function filterMovies(id) {
 // Search Function
 function getMovies(searchText) {
   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
-    if (err !== null) {} else {
+    if (err){
+      return;  
+    }
+    if(responds.Search){
       var omdbData = response.Search;
       var output = '';
       $.each(omdbData, (index, movie) => {
@@ -118,6 +121,8 @@ function getMovies(searchText) {
       });
 
       $('#movies').html(output);
+    } else {
+      $('#movies').html('<img src="http://media02.hongkiat.com/wordpress_error_404/kidmondo.jpg"></img>');
     }
   });
 }
