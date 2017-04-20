@@ -193,5 +193,6 @@ $(document).ready(function () {
 });
 
 function dismissDemo(){
- localStorage.setItem('introdismissed', this.value);
+ localStorage.setItem('introdismissed', true);
+    $('#demoModal').modal('hide');
 }
