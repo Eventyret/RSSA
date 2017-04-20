@@ -60,10 +60,10 @@ function htmlWriteInfo(movie) {
   var inCollection = sessionStorage.getItem('inCollection');
   var myHTML = '';
   myHTML += `<div class="row">
-            <div class="col-lg-4" id="poster">
+            <div class="col-xs-4" id="poster">
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
-              <div class="col-lg-8">
+              <div class="col-xs-8">
               <h2 class="text-center" id="movietitle">${movie.Title}</h2>
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
