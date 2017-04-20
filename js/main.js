@@ -61,8 +61,9 @@ $(document).ready(() => {
       });
     }
   });
-  if (SONARRURL !==''){
+  if (!SONARRURL){
     console.log("No sonar url provided");
+    return;
   }else{
   getData(SONARRURL, function (err, data) {
     if (err !== null) {
@@ -75,7 +76,7 @@ $(document).ready(() => {
       SeriersListLoaded = true;
       searchIt();
     }
-  })};
+  });}
 
   this.data = moviesandtvshows;
 });
