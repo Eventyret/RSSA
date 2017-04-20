@@ -187,7 +187,7 @@ function movieSelected(id) {
 
 // Modal for info
 $(document).ready(function () {
-  if(localStorage.getItem('introdismissed', false)){
+  if(!localStorage.getItem('introdismissed')){
       $('#demoModal').modal('show');
   }
 });
