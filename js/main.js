@@ -128,9 +128,9 @@ function htmlWriteResults(cases) {
   myHTML += `<div class="col-md-4">
             <div class="well text-center">`;
   if (filterMovies(cases.imdbID)) {
-    myHTML += `<div class="alert alert-success" id="${cases.imdbID}inCollection"><i class="fa fa-cloud-download"></i> In Collection</div>`;
+    myHTML += `<div class="alert alert-success" id="${cases.imdbID}inCollection"><i class="fa fa-cloud-download"></i><p> In Collection</p></div>`;
   } else {
-    myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><i class="fa fa-exclamation-triangle"></i> Not in Collection</div>`;
+    myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><i class="fa fa-exclamation-triangle"></i><p>Not in Collection</p></div>`;
   }
   myHTML += `<img src="${posterError(cases.Poster)}">
               <h5 id="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
