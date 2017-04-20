@@ -4,38 +4,37 @@
  
 ### What is this app for?
  
-Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https://github.com/Sonarr/Sonarr) from one dashboard or just from a search? Well look no further
+Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https://github.com/Sonarr/Sonarr) from just a search function? Well look no further
 
 ### What does it do?
- 
-You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection if it's not present in your collection.
- 
+ RSSA uses the API from [Radarr](https://github.com/Radarr/Radarr) and [Sonarr](https://github.com/Sonarr/Sonarr) (if installed) to find what is in your libary. It will then match what you are searching for, and display in a simple term if you have it in your collection or not.
+    
+
 ### How does it work
  
+RSSA will compare the result you are searching for with what you already have in your collection.
+It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
+It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches what you are searching for*.
+
 This app uses the API's from the following ressources
 - Radarr
 - Sonarr
 - The Open Movie Database
 - FanartTV
 
-RSSA will compare the result you are searching for with what you already have in your collection.
-It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
-
-It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title*. 
-
-It will use Radarr and Sonarr's API to post to your collection.
-
----
-
 ## Features
  
 ### Existing Features
-- Search for any Movie or TV Show
-- Add to a movie to your Radarr collection
+- Search for any Movie or TV Show.
+- Add a movie or TV Show to your collection.
 - Grabs a random fanart at the first page. (if it exists)
 - Grabs the fanart for the movie you are looking in detail. (if it exists)
 - Adds a placeholder image if there is no poster to display.
-- Button is disabled if you have it in your collection.
+- "Add to collection" button is disabled if you have it in your collection.
+- Displays a **__Green banner__** on top of the movie if it is **__IN your collection.__**
+- Displays a **__Red banner__** over the movie if its **__NOT in your collection.__**
+
+![Incollection](http://i.imgur.com/REPeTxI.png)![notIncollection](http://i.imgur.com/HM4ptxW.png)
 
 ### In Progress
  
@@ -58,7 +57,7 @@ It will use Radarr and Sonarr's API to post to your collection.
 - [Radarr](https://github.com/Radarr/Radarr)
     - Fork of Sonarr, but for movies
 - [Sonarr](https://github.com/Sonarr/Sonarr)
-    - Mostly used for NZB but was adapted to use Torrent! Amazing project
+    - Using NZB and Torrents to keep your TV Show libary up to date.
 - [FanArt.tv](https://www.fanart.tv)
     - Providing the API for Backdrops
 - [The Open Movie Database](https://www.omdbapi.com/)
@@ -77,7 +76,6 @@ It will use Radarr and Sonarr's API to post to your collection.
 var FANARTAPI = '' // FanArt.tv API KEY
 var RADARRURL = './demodata/movies.json' // Your Radarr URL
 var SONARRURL = './demodata/series.json' // Your Sonarr URL 
-var STATUSURL = './demodata/status.json' // Your Radarr URL /api/status
 ```
 
 
