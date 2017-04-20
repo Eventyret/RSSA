@@ -127,6 +127,7 @@ a:link, a:visited, a:hover, a:active {
 #movieposter {
     margin-bottom: 15px;
     margin-top: 11vh;
+    margin-left: 20px;
 }
 
 .img-thumbnail {
@@ -142,6 +143,7 @@ a:link, a:visited, a:hover, a:active {
     max-width: 100%;
     height: auto;
     border-radius: 15px;
+    
 }
 .list-group {
     margin-bottom: 20px;
