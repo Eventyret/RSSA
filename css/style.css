@@ -1,47 +1,42 @@
-/* Importing Google Fonts */
-
+/*Importing Google Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-/* Media Queries for responsive fonts */
-
+/*Media Queries for responsive fonts*/
 @media all and (max-width: 1200px) {
     body {
-        font-size: 1em;
+        font-size: 1.33vw;
     }
 }
 @media all and (max-width: 1000px) {
     body {
-        font-size: 1.2em;
+        font-size: 1.6em;
         }
 }
 @media all and (max-width: 500px) {
     body {
-        font-size: 1.2em;
+        font-size: 3.2vw;
         }
 }
 html {
    height: 100%;
 }
 
-/* Common styles used on both pages */
-
+/*Common styles used on both pages*/
 body {
-    font-family: "Open Sans";
-	font-size: 1em;
     min-height: 100%;
     background-color: #3E4551
 }
 h1 {
 	font-family: "Open Sans";
-    font-size: 1.3em;
+    font-size: 5.9vw;
 }
 h3 {
 	font-family: "Open Sans";
-    font-size: 1.125em;
+    font-size: 2.0vh;
 }
 p {
 	font-family: "Open Sans";
-	font-size: 1em;
+	font-size: 2vmin;
 }
 .loader {
 	position: fixed;
@@ -80,7 +75,7 @@ a:link, a:visited, a:hover, a:active {
 .well {
     min-height: 20px;
     padding: 19px;
-    margin-bottom: 5px;
+    margin-bottom: 5px
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
@@ -91,7 +86,7 @@ a:link, a:visited, a:hover, a:active {
     color: rgba(255,255,255, 1);
 }
 
-/* Used on index.html */
+/*Used on index.html*/
 
 #movies img {
     height: 220px;
@@ -102,7 +97,7 @@ a:link, a:visited, a:hover, a:active {
     height: 220px;
 }
 
-/* Used on info.html */
+/*Used on info.html*/
 
 #movie .col-md-4 img {
     height: 390px;
@@ -110,7 +105,7 @@ a:link, a:visited, a:hover, a:active {
 }
 #movieposter {
     margin-bottom: 15px;
-    margin-top: 12vh;
+    margin-top: 11vh;
 }
 
 .img-thumbnail {
@@ -142,7 +137,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Navbar */
-
 .navbar-fixed-bottom {
     bottom: -10px;
     margin-bottom: 0;
