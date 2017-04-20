@@ -85,7 +85,7 @@ function htmlWriteInfo(movie) {
         <div class="row" id="rowplot">
           <div class="well" id="plot">
             <h3>Plot</h3>
-            ${movie.Plot}
+            <p>${movie.Plot}</p>
             <hr>
             <a href="//www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`;
   if (inCollection === 'true') {
