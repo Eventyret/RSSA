@@ -61,7 +61,7 @@ $(document).ready(() => {
       });
     }
   });
-  if (!SONNARURL){
+  if (!SONARRURL){
     return;
   }
   getData(SONARRURL, function (err, data) {
