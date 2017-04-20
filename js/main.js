@@ -60,7 +60,7 @@ $(document).ready(() => {
         }
       });
     }
-    hideLoaderIfReady()
+    hideLoaderIfReady();
   });
   
   getData(SONARRURL, function (err, data) {
@@ -74,7 +74,7 @@ $(document).ready(() => {
       SeriersListLoaded = true;
       searchIt();
     }
-    hideLoaderIfReady()
+    hideLoaderIfReady();
   });
 
   this.data = moviesandtvshows;
@@ -187,5 +187,11 @@ function movieSelected(id) {
 
 // Modal for info
 $(document).ready(function () {
-  $('#demoModal').modal('show');
+  if(!localStorage.getItem('introdismissed')){
+      $('#demoModal').modal('show');
+  }
 });
+
+function dismissDemo(){
+ localStorage.setItem('introdismissed', this.value);
+}
