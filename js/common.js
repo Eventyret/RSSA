@@ -18,9 +18,11 @@ $(document).ready(function () {
   $('.loader').show();
 });
 
-setTimeout(function () {
-  $('.loader').hide();
-}, 6000);
+function hideLoaderIfReady() {
+  if (MovieListLoaded && SeriersListLoaded){
+    $('.loader').hide();
+  }
+}
 
 // Tooltip function
 $(document).ready(function () {

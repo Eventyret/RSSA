@@ -60,6 +60,7 @@ $(document).ready(() => {
         }
       });
     }
+    hideLoaderIfReady()
   });
   
   getData(SONARRURL, function (err, data) {
@@ -73,6 +74,7 @@ $(document).ready(() => {
       SeriersListLoaded = true;
       searchIt();
     }
+    hideLoaderIfReady()
   });
 
   this.data = moviesandtvshows;
