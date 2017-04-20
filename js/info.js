@@ -105,5 +105,5 @@ function htmlWriteInfo(movie) {
 }
 
 function demoModal() {
-  bootbox.alert('You just added the movie to Radarr<br> Oh wait its just a demo...');
+  bootbox.alert('You just added the movie to Radarr Collection<br> Though this is just a demo...');
 }

@@ -6,17 +6,17 @@
 
 @media all and (max-width: 1200px) {
     body {
-        font-size: 1.33vw;
+        font-size: 1em;
     }
 }
 @media all and (max-width: 1000px) {
     body {
-        font-size: 1.6em;
+        font-size: 1.2em;
         }
 }
 @media all and (max-width: 500px) {
     body {
-        font-size: 3.2vw;
+        font-size: 1.2em;
         }
 }
 html {
@@ -31,15 +31,15 @@ body {
 }
 h1 {
 	font-family: "Open Sans";
-    font-size: 5.9vw;
+    font-size: 1.3em;
 }
 h3 {
 	font-family: "Open Sans";
-    font-size: 2.0vh;
+    font-size: 1.125em;
 }
 p {
 	font-family: "Open Sans";
-	font-size: 2vmin;
+	font-size: 1em;
 }
 .loader {
 	position: fixed;
