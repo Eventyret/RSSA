@@ -1,45 +1,56 @@
-/* Importing Google Fonts */
-
+/*Importing Google Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-/* Media Queries for responsive fonts */
-
+/*Media Queries for responsive fonts*/
 @media all and (max-width: 1200px) {
     body {
-        font-size: 1em;
+        font-size: 1.33vw;
     }
 }
 @media all and (max-width: 1000px) {
     body {
-        font-size: 1.2em;
+        font-size: 1.6em;
         }
 }
 @media all and (max-width: 500px) {
     body {
-        font-size: 1.2em;
+        font-size: 3.2vw;
         }
 }
 html {
    height: 100%;
 }
 
-/* Common styles used on both pages */
-
+/*Common styles used on both pages*/
 body {
     min-height: 100%;
     background-color: #3E4551
 }
 h1 {
 	font-family: "Open Sans";
-    font-size: 1.3em;
+    font-size: 40px;
+}
+h2 {
+    font-family: "Open Sans";
+    font-size: 32px;
 }
 h3 {
 	font-family: "Open Sans";
-    font-size: 1.125em;
+    font-size: 28px;
 }
-p {
+h4 {
+    font-size: 24px
+}
+h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p li ul {
 	font-family: "Open Sans";
-	font-size: 1em;
+    /*** Fallback ***/
+    font-size: 16px;
+	font-size: 2vmin;
 }
 .loader {
 	position: fixed;
@@ -55,10 +66,7 @@ p {
     margin-bottom: 5px;
 }
 
-h5 .h5 {
-    font-size: 15px;
-    font-weight: 600;
-}
+
 #whiteheader {
     color: rgba(255,255,255, 1);
 }
@@ -79,7 +87,7 @@ a:link, a:visited, a:hover, a:active {
     min-height: 20px;
     padding: 19px;
     margin-bottom: 5px
-    border: 1px solid #e3e3e3;
+    border 1px solid #e3e3e3;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
@@ -89,7 +97,7 @@ a:link, a:visited, a:hover, a:active {
     color: rgba(255,255,255, 1);
 }
 
-/* Used on index.html */
+/*Used on index.html*/
 
 #movies img {
     height: 220px;
@@ -99,8 +107,20 @@ a:link, a:visited, a:hover, a:active {
 #movies .col-md-4 img {
     height: 220px;
 }
+#maincontainer {
+    margin-bottom: 50px;
+}
+#search {
+    background-color: rgba(44, 62, 80, 0.32);
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#searchbutton {
+    margin-right: 5px;
+}
 
-/* Used on info.html */
+/*Used on info.html*/
 
 #movie .col-md-4 img {
     height: 390px;
@@ -108,7 +128,7 @@ a:link, a:visited, a:hover, a:active {
 }
 #movieposter {
     margin-bottom: 15px;
-    margin-top: 12vh;
+    margin-top: 11vh;
 }
 
 .img-thumbnail {
@@ -131,7 +151,7 @@ a:link, a:visited, a:hover, a:active {
     padding: 25px;
 }
 .btn-space {
-    margin-right: 5px;
+    margin: 5px;
 }
 #rowplot {
     margin-bottom: -10px;
@@ -140,7 +160,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 /* Navbar */
-
 .navbar-fixed-bottom {
     bottom: -10px;
     margin-bottom: 0;
@@ -150,16 +169,4 @@ a:link, a:visited, a:hover, a:active {
 .navbar-default {
     background-color: rgba(44, 62, 80, 0.32);
     border-color: transparent;
-}
-#maincontainer {
-    margin-bottom: 50px;
-}
-#search {
-    background-color: rgba(44, 62, 80, 0.32);
-    margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-#searchbutton {
-    margin-right: 5px;
 }
