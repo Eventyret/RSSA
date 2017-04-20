@@ -28,19 +28,16 @@ body {
 }
 h1 {
 	font-family: "Open Sans";
-    /* Fallback */
     font-size: 40px;
 
     font-size: 5.9vw;
 }
 h2 {
     font-family: "Open Sans";
-    /*Fallback*/
     font-size: 32px;
 }
 h3 {
 	font-family: "Open Sans";
-    /*Fallback*/
     font-size: 28px;
 }
 h4 {
