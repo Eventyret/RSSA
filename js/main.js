@@ -61,7 +61,7 @@ $(document).ready(() => {
       });
     }
   });
-  if (!SONARRURL){
+  if (SONARRURL !== ''){
     console.log("No sonar url provided");
     return;
   }else{
