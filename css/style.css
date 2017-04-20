@@ -123,6 +123,7 @@ a:link, a:visited, a:hover, a:active {
 
 #movie .col-md-4 img {
     height: 390px;
+    width: 100%;
 }
 #movieposter {
     margin-bottom: 15px;
