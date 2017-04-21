@@ -71,24 +71,20 @@ This app uses the API's from the following ressources
  
 ### Setup
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
-2. Replace the **RadarUrl** with your own radarurl and apikey.
+2. Replace the **RADARRURL** with your own radarurl and apikey.
 
 ```javascript 
 var FANARTAPI = '' // FanArt.tv API KEY
-var RADARRURL = './demodata/movies.json' // Your Radarr URL
-var SONARRURL = './demodata/series.json' // Your Sonarr URL 
+var RADARRURL = 'http://localhost:7878/api/systen/status=apikey=${YOUR_API_KEY}' // Radarr URL
+var SONARRURL = 'http://localhost:8989/api/system/status?apikey=${YOUR_API_KEY}' // Sonarr URL 
 ```
 
 Information regarding their API and URL's can be found below.
-- [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API) 
+- [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API)
 - [Sonarr Github Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - API codes for **FanArt.tv** you will need an account for and its free.
     - [Fanart.tv](https://fanart.tv/get-an-api-key/)
 3. All Done. Thats it you can now just go to your URL and its ready to be used
-
-- You can select the time it takes to load the page in `/js/common.js`
-   - Line 54 (Change the miliseconds) `setTimeout(function () {$(".loader").hide();}, 6000);`
-   - Bigger Libary needs longer time.
 
 # Do you want to test it and see how it is? [Demo here](https://eventyret.github.io/FrontEndProject)
 
