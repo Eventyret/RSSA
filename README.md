@@ -31,6 +31,7 @@ This app uses the API's from the following ressources
 - Grabs the fanart for the movie you are looking in detail. (if it exists)
 - Adds a placeholder image if there is no poster to display.
 - "Add to collection" button is disabled if you have it in your collection.
+- Validates input - You have to type something to search for something.
 - Displays a **__Green banner__** on top of the movie if it is **__IN your collection.__**
 - Displays a **__Red banner__** over the movie if its **__NOT in your collection.__**
 
@@ -57,9 +58,9 @@ This app uses the API's from the following ressources
 - [Radarr](https://github.com/Radarr/Radarr)
     - Fork of Sonarr, but for movies
 - [Sonarr](https://github.com/Sonarr/Sonarr)
-    - Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+    - Sonarr is a PVR for Usenet and BitTorrent users.
 - [FanArt.tv](https://www.fanart.tv)
-    - Providing the API for Backdrops
+    - Providing the API for Backdrops / Backgrounds.
 - [The Open Movie Database](https://www.omdbapi.com/)
     - Providing a API to search for movies and TV Shows
 
