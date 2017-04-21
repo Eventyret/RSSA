@@ -124,7 +124,7 @@ function getMovies(searchText) {
 
       $('#movies').html(output);
     } else {
-      $('#movies').html('<img src="http://media02.hongkiat.com/wordpress_error_404/kidmondo.jpg"></img>');
+      $('#movies').html('<div class="col-md-12"><div class="well text-center"><img src="http://media02.hongkiat.com/wordpress_error_404/kidmondo.jpg"></img></div></div>');
     }
   });
 }
