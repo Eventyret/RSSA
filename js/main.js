@@ -124,7 +124,7 @@ function getMovies(searchText) {
 
       $('#movies').html(output);
     } else {
-      $('#movies').html('<div class="col-md-12"><div class="well text-center"><h2>We apologise</h2><br><p>There was no movie or series found by searching for' + searchText + '</p></div></div>');
+      $('#movies').html('<div class="col-md-12"><div class="well text-center"><br><i class="fa fa-exclamation-triangle fa-4x whiteheader"></i><h2 class="whiteheader">Sorry, but <b>' + searchText + '</b> gave no results</h2><br><p class="whiteheader">But we would <i class="fa fa-heart" style="color:red;"></i>  for you to try something else.</p></div></div>');
     }
   });
 }
@@ -140,7 +140,7 @@ function htmlWriteResults(cases) {
     myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><p><i class="fa fa-exclamation-triangle"></i> Not in Collection</p></div>`;
   }
   myHTML += `<img src="${posterError(cases.Poster)}">
-              <h5 id="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
+              <h5 class="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
                   <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
                 </div>
