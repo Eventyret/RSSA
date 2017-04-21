@@ -39,17 +39,20 @@ h3 {
     font-size: 28px;
 }
 h4 {
+    font-family: "Open Sans";
     font-size: 24px
 }
 h5 {
+    font-family: "Open Sans";
     font-size: 20px;
     font-weight: 600;
 }
 
 p li ul {
 	font-family: "Open Sans";
-    /*** Fallback ***/
+    /* Fallback */
     font-size: 16px;
+    /* For responsiveness */
 	font-size: 2vmin;
 }
 .loader {
