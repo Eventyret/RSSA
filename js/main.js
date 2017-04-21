@@ -124,7 +124,7 @@ function getMovies(searchText) {
 
       $('#movies').html(output);
     } else {
-      $('#movies').html('<div class="col-md-12"><div class="well text-center"><img src="http://media02.hongkiat.com/wordpress_error_404/kidmondo.jpg"></img></div></div>');
+      $('#movies').html('<div class="col-md-12"><div class="well text-center"><h2>We apologise</h2><br><p>There was no movie or series found by searching for' + searchText + '</p></div></div>');
     }
   });
 }
