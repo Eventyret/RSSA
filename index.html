@@ -49,51 +49,51 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#" onclick="showDemo()">Show Help</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#myModal">About the Project</a></li>
+          <li><a href="#" onclick="showDemo()">Help</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#project">About the Project</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="project" tabindex="-1" role="dialog" aria-labelledby="projectLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Radarr & Sonarr Search Application (RSSA)</h4>
+          <h4 class="modal-title" id="projectLabel">Radarr & Sonarr Search Application (RSSA)</h4>
         </div>
         <div class="modal-body">
           <h3>What is this app for?</h3>
-          <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr" target="_blank">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr"
-              target="_blank">Sonarr</a> from one dashboard or just from a search? Well look no further</p>
+          <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> from just a search function? Well look no further</p>
           <h3>What does it do?</h3>
-          <p>You can just make a search and see if the movie or TV show is in your collection, you can also add it to your collection
-            if you want that.</p>
-          <p>The program does a search for data with OmDB for what you are searching for, then matches this with the information
-            from Radarr and Sonarr, and tells you if it is in your collection.<br> It matches this by using sizeonDisk and
-            IMDB titles. Using the API from Radarr and Sonarr to post to your collection.</p>
+          <p>RSSA uses the API from <a href="https://github.com/Radarr/Radarr">Radarr</a> and <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> (if installed) to find what is in your libary. It will then match what you are searching for, and display in a simple term if you have it in your collection or not.</p>
+          <h3>How does it work</h3>
+          <p>RSSA will compare the result you are searching for with what you already have in your collection. It will load
+            the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. It
+            is considered to be in your collection if <em>sizeonDisk is greater then 0</em> and <em>IMDB title matches</em>.</p>
+          <p>This app uses the API's from the following ressources</p>
+          <ul>
+            <li>Radarr</li>
+            <li>Sonarr</li>
+            <li>The Open Movie Database</li>
+            <li>FanartTV</li>
+          </ul>
           <h2>Features</h2>
-          <h3>Existing Features</h3>
           <ul>
-            <li>Search for any Movie or TV Series</li>
-            <li>Add to movie collection</li>
+            <li>Search for any Movie or TV Show.</li>
+            <li>Add a movie or TV Show to your collection.</li>
             <li>Grabs a random fanart at the first page. (if it exists)</li>
-            <li>Grabs the fanart for the movie you are looking in detail (if it exists)</li>
+            <li>Grabs the fanart for the movie you are looking in detail. (if it exists)</li>
             <li>Adds a placeholder image if there is no poster to display.</li>
-            <li>Button is disabled if you have it in your collection.</li>
-            <li>Go back to search (Using Querystrings)</li>
+            <li>"Add to collection" button is disabled if you have it in your collection.</li>
+            <li>Validates input - You have to type something to search for something.</li>
+            <li>Displays a <strong><em>_Green banner</em><em></strong> on top of the movie if it is <strong></em><em>IN your collection.</em>_</strong></li>
+            <li>Displays a <strong><em>_Red banner</em><em></strong> over the movie if its <strong></em><em>NOT in your collection.</em>_</strong></li>
           </ul>
-          <h3> Features Left to Implement</h3>
-          <ul>
-            <li>Add to series collection (This is currently not working due the API from TheTVDB)</li>
-            <li>Add POST API for TheTVDB to connect to their endpoint /login</li>
-            <li>Store the token and pass this to their API to get tvdbID to be used in info.js</li>
-          </ul>
-          <p>A full list and the project can be be found on
-            <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a>
-          </p>
+          <p><img src="http://i.imgur.com/REPeTxI.png" alt="Incollection" /><img src="http://i.imgur.com/HM4ptxW.png" alt="notIncollection"
+            /></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -124,23 +124,22 @@
             <li>Star Wars</li>
             <li>Billions</li>
           </ul>
-          <p>You can also try to check validation, don't enter anything and press enter.</p><br>
+          <p><b>You can also try to check validation, don't enter anything and press enter.</b></p><br>
           <p>Or just search something you don't exists and see how it handles errors</p>
           <p>The Project itself can be found on
             <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a>
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" onclick="dismissDemo()">Don't remind me again</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="dismissDemo()">Close</button>
         </div>
       </div>
     </div>
   </div>
   <!--End of Demo modal-->
 
-<!--Contact Form Modal-->
-<!--End of contact form modal-->
+  <!--Contact Form Modal-->
+  <!--End of contact form modal-->
   <!-- Start Search Content & Movie Container -->
   <div class="container">
     <div class="row">
@@ -148,7 +147,8 @@
         <div class="row">
           <form id="searchForm">
             <div class="input-group">
-              <input type="text" class="form-control" id="searchText" placeholder="Search for any move or series and press enter..." autofocus required>
+              <input type="text" class="form-control" id="searchText" placeholder="Search for any move or series and press enter..." autofocus
+                required>
               <span class="input-group-btn"><input type="submit" id="searchbutton" class="btn btn-primary" value="Go"></span>
             </div>
           </form>

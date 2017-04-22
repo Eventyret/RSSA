@@ -14,7 +14,7 @@ Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https:
  
 RSSA will compare the result you are searching for with what you already have in your collection.
 It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
-It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches title you are searching for*.
+It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches*.
 
 This app uses the API's from the following ressources
 - Radarr
