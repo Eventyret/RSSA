@@ -22,8 +22,7 @@ This app uses the API's from the following ressources
 - FanartTV
 
 ## Features
- 
-### Existing Features
+
 - Search for any movie or TV series.
 - Add a movie or TV series to your collection.
 - Grabs a random background at the first page. (If it exists)
@@ -37,7 +36,7 @@ This app uses the API's from the following ressources
 ![Incollection](http://i.imgur.com/REPeTxI.png)![notIncollection](http://i.imgur.com/HM4ptxW.png)
 
 
-## Want to try it yourself?
+## Want to do it yourself?
 
 ### Requirements
 - [Radarr](https://github.com/Radarr/Radarr) (This is **required** to match for movies)
@@ -60,9 +59,9 @@ Information regarding the API endpoints can be found in their respective wiki pa
 3. Add your newly created **Fanart.tv** API key to the `js\api.js`
 4. All configurations are done, you can run `index.html` on any server.
 
-# Do you want to test it and see how it is? [Demo here](https://eventyret.github.io/FrontEndProject)
-
-## Thanks to
+# Want to test it and see how it works? [Demo here](https://eventyret.github.io/FrontEndProject)
+--
+## Credits
 
 - [Bradtraversy](https://github.com/bradtraversy/movieinfo) 
     - The original page design concept and where I got the idea, using his basic tech (**Bootswatch**). Further expanded upon with more / other functionalities and options.
@@ -78,7 +77,7 @@ Information regarding the API endpoints can be found in their respective wiki pa
 
 ## Technologies used
 
-![Technologies](https://camo.githubusercontent.com/904ade21b6fb63dec17555495bb36f749ba52023/68747470733a2f2f73332d75732d776573742d322e616d617a6f6e6177732e636f6d2f706c7567696e7365727665722f646f635265736f75726365732f737461636b2e737667)
+<img src="https://camo.githubusercontent.com/904ade21b6fb63dec17555495bb36f749ba52023/68747470733a2f2f73332d75732d776573742d322e616d617a6f6e6177732e636f6d2f706c7567696e7365727665722f646f635265736f75726365732f737461636b2e737667" width="350px">
 
 ### Some of the tech we used in this project includes
 - [Bootstrap](http://getbootstrap.com/)
