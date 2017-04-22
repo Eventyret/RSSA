@@ -64,7 +64,7 @@ function htmlWriteInfo(movie) {
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
               <div class="col-md-8">
-              <h2 class="text-center" id="movietitle">${movie.Title}</h2>
+              <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})(</h2>
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
                   <li class="list-group-item"><strong><i class="fa fa-calendar"></i> Released:</strong> ${movie.Released}</li>
@@ -87,16 +87,16 @@ function htmlWriteInfo(movie) {
             <h3>Plot</h3>
             <p>${movie.Plot}</p>
             <hr>
-            <a href="//www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View IMDB</a>`;
+            <a href="//www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View on IMDB</a>`;
   if (inCollection === 'true') {
     disabledbutton = `danger disabled" disabled`;
   } else {
     disabledbutton = `success"`;
   }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`;
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Title} to collection</button>`;
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   }
   var searchFor = window.location.href.split('?q=');
   var searchQuery = searchFor[1];
