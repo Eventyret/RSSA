@@ -124,7 +124,7 @@ function getMovies(searchText) {
 
       $('#movies').html(output);
     } else {
-      $('#movies').html('<div class="col-md-12"><div class="well text-center"><br><i class="fa fa-exclamation-triangle fa-4x whiteheader"></i><h2 class="whiteheader">Sorry, but <b>' + searchText + '</b> gave no results</h2><br><p class="whiteheader">But we would <i class="fa fa-heart" style="color:red;"></i>  for you to try something else.</p></div></div>');
+      $('#movies').html('<div class="col-md-12"><div class="well text-center"><br><i class="fa fa-exclamation-triangle fa-4x whiteheader"></i><h2 class="whiteheader">Sorry, but <b>' + searchText + '</b> gave no results</h2><br><p class="whiteheader">But we would <i class="fa fa-heart" style="color:red;"> </i>  for you to try something else.</p></div></div>');
     }
   });
 }
