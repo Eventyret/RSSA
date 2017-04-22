@@ -7,7 +7,7 @@
 Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https://github.com/Sonarr/Sonarr) from just a search function? Well, look no further.
 
 ### What does it do?
- RSSA uses the API from [Radarr](https://github.com/Radarr/Radarr) and [Sonarr](https://github.com/Sonarr/Sonarr) (if installed) to find what is in your libary. It will then match what you are searching for and display in a simple term if you have it in your collection or not.   
+ RSSA uses the API from [Radarr](https://github.com/Radarr/Radarr) and [Sonarr](https://github.com/Sonarr/Sonarr) to find what is in your libary. It will then match what you are searching for and display in a simple term if you have it in your collection or not.   
 
 ### How does it work?
  
@@ -15,7 +15,7 @@ RSSA will compare the result you are searching for with what you already have in
 It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
 It is considered to be a part of your collection if *Size on disk is greater than 0* and matches the *IMDB ID or title*.
 
-This app uses the API's from the following ressources
+This app uses the API's from the following resources:
 - Radarr
 - Sonarr
 - The Open Movie Database
@@ -33,7 +33,7 @@ This app uses the API's from the following ressources
 - Displays a **__green banner__** on top of the result if it is **__IN your collection.__**
 - Displays a **__red banner__** on top of the result if its **__NOT in your collection.__**
 
-![Incollection](http://i.imgur.com/REPeTxI.png)![notIncollection](http://i.imgur.com/HM4ptxW.png)
+![Collection Preview](http://i.imgur.com/bHIfftd.png)
 
 
 ## Want to do it yourself?
@@ -60,7 +60,9 @@ Information regarding the API endpoints can be found in their respective wiki pa
 4. All configurations are done, you can run `index.html` on any server.
 
 # Want to test it and see how it works? [Demo here](https://eventyret.github.io/FrontEndProject)
---
+
+---
+
 ## Credits
 
 - [Bradtraversy](https://github.com/bradtraversy/movieinfo) 
@@ -79,12 +81,12 @@ Information regarding the API endpoints can be found in their respective wiki pa
 
 <img src="https://camo.githubusercontent.com/904ade21b6fb63dec17555495bb36f749ba52023/68747470733a2f2f73332d75732d776573742d322e616d617a6f6e6177732e636f6d2f706c7567696e7365727665722f646f635265736f75726365732f737461636b2e737667" width="350px">
 
-### Some of the tech we used in this project includes
+### Some of the tech we used in this project includes:
 - [Bootstrap](http://getbootstrap.com/)
-    - We use **Bootstrap** to give our project a simple, responsive layout
+    - We use **Bootstrap** to give our project a simple, responsive layout.
 - [Bootswatch](https://bootswatch.com)
-    - We use just a simple theme from Bootswatch named **[Flatly](https://bootswatch.com/flatly/)**
+    - We use just a simple theme from Bootswatch, named **[Flatly](https://bootswatch.com/flatly/)**.
 - [Bootbox.js](http://bootboxjs.com/)
     - This is for the alert boxes made into modal.
 - [jQuery](http://jquery.com/)
-    - **Included with Bootstrap** to have dynamic elements, like modals.
+    - **Included with Bootstrap** to have dynamic elements, e.g modals.
