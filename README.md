@@ -58,23 +58,22 @@ Information regarding the API endpoints can be found in their respective wiki pa
 - [Sonarr Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - **Fanart.tv** is used for the backgrounds and you will need to create an free account for the API key. It can be found [here](https://fanart.tv/get-an-api-key/).
 3. Add your newly created **Fanart.tv** API key to the `js\api.js`
-4. All configurations are done, you can now visit `index.html` to use the site.
+4. All configurations are done, you can run `index.html` on any server.
 
 # Do you want to test it and see how it is? [Demo here](https://eventyret.github.io/FrontEndProject)
 
 ## Thanks to
 
 - [Bradtraversy](https://github.com/bradtraversy/movieinfo) 
-    - The Original page design and where i got the idea. Check out his [Youtube](https://www.youtube.com/watch?v=YsPqjYGauns) This is using the framework he built here, and extended with other functionality.
-
-- [Radarr](https://github.com/Radarr/Radarr)
-    - Fork of Sonarr, but for movies
+    - The original page design concept and where I got the idea, using his basic tech (**Bootswatch**). Further expanded upon with more / other functionalities and options.
 - [Sonarr](https://github.com/Sonarr/Sonarr)
-    - Sonarr is a PVR for Usenet and BitTorrent users.
-- [FanArt.tv](https://www.fanart.tv)
-    - Providing the API for Backdrops / Backgrounds.
+    - Sonarr is a PVR for Usenet and BitTorrent users for tv series.
+- [Radarr](https://github.com/Radarr/Radarr)
+    - Fork of Sonarr, but for movies.
+- [Fanart.tv](https://www.fanart.tv)
+    - Providing the API for backgrounds.
 - [The Open Movie Database](https://www.omdbapi.com/)
-    - Providing a API to search for movies and TV shows
+    - Providing a API to search for movies and TV series.
 
 
 ## Technologies used
