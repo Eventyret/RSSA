@@ -64,7 +64,7 @@ function htmlWriteInfo(movie) {
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
               <div class="col-md-8">
-              <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})(</h2>
+              <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})</h2>
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
                   <li class="list-group-item"><strong><i class="fa fa-calendar"></i> Released:</strong> ${movie.Released}</li>
