@@ -14,7 +14,7 @@ Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https:
  
 RSSA will compare the result you are searching for with what you already have in your collection.
 It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
-It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches*.
+It is considered to be in your collection if *sizeonDisk is greater than 0* and *IMDB title matches*.
 
 This app uses the API's from the following ressources
 - Radarr
@@ -31,7 +31,7 @@ This app uses the API's from the following ressources
 - Grabs the fanart for the movie you are looking in detail. (if it exists)
 - Adds a placeholder image if there is no poster to display.
 - "Add to collection" button is disabled if you have it in your collection.
-- Validates input - You have to type something to search for something.
+- Validates input - Use the search bar to find a movie or series (***This cannot be blank**)
 - Displays a **__Green banner__** on top of the movie if it is **__IN your collection.__**
 - Displays a **__Red banner__** over the movie if its **__NOT in your collection.__**
 
