@@ -14,7 +14,7 @@ Ever wanted to use [Radarr](https://github.com/Radarr/Radarr) or [Sonarr](https:
  
 RSSA will compare the result you are searching for with what you already have in your collection.
 It will load the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. 
-It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches what you are searching for*.
+It is considered to be in your collection if *sizeonDisk is greater then 0* and *IMDB title matches title you are searching for*.
 
 This app uses the API's from the following ressources
 - Radarr
@@ -72,7 +72,7 @@ This app uses the API's from the following ressources
  
 ### Setup
 1. Firstly you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
-2. Replace the **RADARRURL** with your own radarurl and apikey.
+2. Replace the **RADARRURL** and **SONARRURL** with your own radarurl and apikey. 
 
 ```javascript 
 var FANARTAPI = '' // FanArt.tv API KEY
@@ -80,12 +80,13 @@ var RADARRURL = 'http://localhost:7878/api/systen/status=apikey=${YOUR_API_KEY}'
 var SONARRURL = 'http://localhost:8989/api/system/status?apikey=${YOUR_API_KEY}' // Sonarr URL 
 ```
 
-Information regarding their API and URL's can be found below.
+Information regarding their API endpoints can be found below.
 - [Radarr Github Wiki](https://github.com/Radarr/Radarr/wiki/API)
 - [Sonarr Github Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - API codes for **FanArt.tv** you will need an account for and its free.
     - [Fanart.tv](https://fanart.tv/get-an-api-key/)
-3. All Done. Thats it you can now just go to your URL and its ready to be used
+3. Add your newly created **Fanart.tv** API key to the `js\api.js`
+4. All Done. Thats it you can now just go to your URL and its ready to be used
 
 # Do you want to test it and see how it is? [Demo here](https://eventyret.github.io/FrontEndProject)
 
