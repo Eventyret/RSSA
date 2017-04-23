@@ -169,10 +169,10 @@ a:link, a:visited, a:hover, a:active {
     bottom: -10px;
     margin-bottom: 0;
     border-width: 1px 0 0;
-    background-color: rgba(44, 62, 80, 0.32);
+    background-color: rgba(44, 62, 80, 0.70);
 }
 .navbar-default {
-    background-color: rgba(44, 62, 80, 0.32);
+    background-color: rgba(44, 62, 80, 0.70);
     border-color: transparent;
 }
 #top-navbar > ul > li > a:hover {

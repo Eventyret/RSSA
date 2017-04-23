@@ -60,7 +60,7 @@ function htmlWriteInfo(movie) {
   var disabledbutton = '';
   var inCollection = sessionStorage.getItem('inCollection');
   var myHTML = '';
-  myHTML += `<div class="row">
+  myHTML += `<article class="row">
             <div class="col-md-4" id="poster">
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
@@ -101,7 +101,7 @@ function htmlWriteInfo(movie) {
   }
   var searchFor = window.location.href.split('?q=');
   var searchQuery = searchFor[1];
-  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div>`;
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></article>`;
   return myHTML;
 }
 
