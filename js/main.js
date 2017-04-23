@@ -22,12 +22,14 @@ var getData = function (url, callback) {
 var MovieListLoaded = false;
 var SeriesListLoaded = false;
 
+// - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo
 $(document).ready(() => {
   $('#searchForm').on('submit', (e) => {
     var searchText = $('#searchText').val();
     getMovies(searchText);
     e.preventDefault();
   });
+// End original code from Bradtraversy
 
   var moviesandtvshows = [];
 
@@ -112,7 +114,8 @@ function filterMovies(id) {
   return isDownloaded;
 }
 
-// Search Function
+// Search Function - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo modified to work with more functionality.
+
 function getMovies(searchText) {
   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
     if (err){
