@@ -19,7 +19,7 @@ var getData = function (url, callback) {
   xhr.send();
 };
 var MovieListLoaded = false;
-var SeriersListLoaded = false;
+var SeriesListLoaded = false;
 
 $(document).ready(() => {
   $('#searchForm').on('submit', (e) => {
@@ -65,13 +65,13 @@ $(document).ready(() => {
   
   getData(SONARRURL, function (err, data) {
     if (err !== null) {
-      SeriersListLoaded = true;
+      SeriesListLoaded = true;
       console.log('Something went wrong: ' + err);
     } else {
       moviesandtvshows.push({
         'series': data
       });
-      SeriersListLoaded = true;
+      SeriesListLoaded = true;
       searchIt();
     }
     hideLoaderIfReady();
@@ -81,7 +81,7 @@ $(document).ready(() => {
 });
 
 function searchIt() {
-  if (MovieListLoaded && SeriersListLoaded) {
+  if (MovieListLoaded && SeriesListLoaded) {
     var searchFor = window.location.href.split('?q=');
     var searchQuery = searchFor[1];
 

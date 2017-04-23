@@ -19,7 +19,7 @@ $(document).ready(function () {
 });
 
 function hideLoaderIfReady() {
-  if (MovieListLoaded && SeriersListLoaded){
+  if (MovieListLoaded && SeriesListLoaded){
     $('.loader').hide();
   }
 }
