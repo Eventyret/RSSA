@@ -175,3 +175,6 @@ a:link, a:visited, a:hover, a:active {
     background-color: rgba(44, 62, 80, 0.32);
     border-color: transparent;
 }
+#top-navbar > ul > li > a:hover {
+    color: #e74c3c; 
+}
