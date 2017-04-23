@@ -18,7 +18,6 @@ var getData = function (url, callback) {
   };
   xhr.send();
 };
-
 function getMovie() {
   var movieId = sessionStorage.getItem('movieId');
   getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
@@ -55,7 +54,8 @@ function getMovie() {
   });
 }
 
-// Writes the info
+// Writes the info |  - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo
+// Modified to use support series, and added button with javascript logic depending on if its in your collection or not
 function htmlWriteInfo(movie) {
   var disabledbutton = '';
   var inCollection = sessionStorage.getItem('inCollection');
