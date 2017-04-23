@@ -47,6 +47,7 @@ function getMovie() {
             imageUrl = image.moviebackground[0].url;
           }
           $('body').css('background-image', 'url(' + imageUrl + ')');
+          $('body').addClass('randombg');
         }
       });
       $('#movie').html(htmlWriteInfo(movie));
@@ -94,9 +95,9 @@ function htmlWriteInfo(movie) {
     disabledbutton = `success"`;
   }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Just click me once to add to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Add ${movie.Title} to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   } else {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Unavailable currently" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
+    myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Currently unavailable" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   }
   var searchFor = window.location.href.split('?q=');
   var searchQuery = searchFor[1];

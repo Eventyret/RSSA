@@ -66,35 +66,36 @@
         </div>
         <div class="modal-body">
           <h3>What is this app for?</h3>
-          <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr">Sonarr</a>            from just a search function? Well look no further</p>
-          <h3>What does it do?</h3>
-          <p>RSSA uses the API from <a href="https://github.com/Radarr/Radarr">Radarr</a> and <a href="https://github.com/Sonarr/Sonarr">Sonarr</a>            (if installed) to find what is in your libary. It will then match what you are searching for, and display in
-            a simple term if you have it in your collection or not.</p>
-          <h3>How does it work</h3>
+          <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> 
+          from just a search function? Well, look no further.</p>
+          <h3 id="whatdoesitdo">What does it do?</h3>
+          <p>RSSA uses the API from <a href="https://github.com/Radarr/Radarr">Radarr</a> and <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> 
+          to find what is in your libary.<br>It will then match what you are searching for and display in a simple term if
+            you have it in your collection or not. </p>
+          <h3 id="howdoesitwork">How does it work?</h3>
           <p>RSSA will compare the result you are searching for with what you already have in your collection. It will load
-            the Radarr & Sonarr JSON into one array and when you search it will loop through and check for matches. It is
-            considered to be in your collection if <em>sizeonDisk is greater then 0</em> and <em>IMDB title matches</em>.</p>
-          <p>This app uses the API's from the following ressources</p>
+            the Radarr &amp; Sonarr JSON into one array and when you search it will loop through and check for matches. It
+            is considered to be a part of your collection if <em>Size on disk is greater than 0</em> and matches the <em>IMDB ID or title</em>.</p>
+          <p>This app uses the API's from the following resources:</p>
           <ul>
             <li>Radarr</li>
             <li>Sonarr</li>
             <li>The Open Movie Database</li>
             <li>FanartTV</li>
           </ul>
-          <h2>Features</h2>
+          <h2 id="features">Features</h2>
           <ul>
-            <li>Search for any Movie or TV Show.</li>
-            <li>Add a movie or TV Show to your collection.</li>
-            <li>Grabs a random fanart at the first page. (if it exists)</li>
-            <li>Grabs the fanart for the movie you are looking in detail. (if it exists)</li>
+            <li>Search for any movie or TV series.</li>
+            <li>Add a movie or TV series to your collection.</li>
+            <li>Grabs a random background at the first page. (If it exists)</li>
+            <li>Grabs the background for the movie you are looking in detail. (If it exists)</li>
             <li>Adds a placeholder image if there is no poster to display.</li>
-            <li>"Add to collection" button is disabled if you have it in your collection.</li>
-            <li>Validates input - You have to type something to search for something.</li>
-            <li>Displays a <strong><em>_Green banner</em><em></strong> on top of the movie if it is <strong></em><em>IN your collection.</em>_</strong></li>
-            <li>Displays a <strong><em>_Red banner</em><em></strong> over the movie if its <strong></em><em>NOT in your collection.</em>_</strong></li>
+            <li>"Add to Collection" button is disabled if you have it in your collection.</li>
+            <li>Validates input - Use the search bar to find a movie or TV series. (<strong>*This cannot be blank</strong>)</li>
+            <li>Displays a <strong><em>green banner</em><em></strong> on top of the result if it is <strong></em><em>IN your collection.</em></strong></li>
+            <li>Displays a <strong><em>red banner</em><em></strong> on top of the result if its <strong></em><em>NOT in your collection.</em></strong></li>
           </ul>
-          <p><img src="http://i.imgur.com/REPeTxI.png" alt="Incollection" /><img src="http://i.imgur.com/HM4ptxW.png" alt="notIncollection"
-            /></p>
+          <p><img src="http://i.imgur.com/bHIfftd.png" alt="Collection Preview" /></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -138,6 +139,7 @@
   <!--Contact Form Modal-->
   <!--End of contact form modal-->
   <!-- Start Search Content & Movie Container -->
+  <article>
   <div class="container">
     <div class="row">
       <div class="jumbotron vertical-center" id="search">
@@ -157,6 +159,7 @@
       </div>
     </div>
   </div>
+  </article>
   <!--End Search Content & Movie container-->
 
   <!--Footer-->
