@@ -162,6 +162,7 @@ a:link, a:visited, a:hover, a:active {
 #rowplot {
     margin-bottom: -10px;
     color: rgba(255,255,255, 1);
+    background-color: rgba(44, 62, 80, 0.52);
 }
 
 /* Navbar */
