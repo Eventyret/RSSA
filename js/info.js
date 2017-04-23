@@ -90,6 +90,7 @@ function htmlWriteInfo(movie) {
           <div class="well" id="rowplot">
             <h3>Plot</h3>
             <p>${movie.Plot}</p>
+            </article>
             <hr>
             <a href="//www.imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-space btn-warning" data-toggle="tooltip" title="See details on IMDB Website"><i class="fa fa-globe"></i> View on IMDB</a>`;
   if (inCollection === 'true') {
@@ -104,7 +105,7 @@ function htmlWriteInfo(movie) {
   }
   var searchFor = window.location.href.split('?q=');
   var searchQuery = searchFor[1];
-  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div><div class="col-xs-12" style="height:100px;"></div></article>`;
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div><div class="col-xs-12" style="height:100px;"></div>`;
   return myHTML;
 }
 
