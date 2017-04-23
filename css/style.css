@@ -177,5 +177,8 @@ a:link, a:visited, a:hover, a:active {
     border-color: transparent;
 }
 #top-navbar > ul > li > a:hover {
-    color: #e74c3c; 
+    color:rgba(231,76,60, 1); 
+}
+#brand a:hover {
+    color:rgba(231,76,60, 1);
 }
