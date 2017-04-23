@@ -70,8 +70,8 @@ function htmlWriteInfo(movie) {
                   <li class="list-group-item"><strong><i class="fa fa-calendar"></i> Released:</strong> ${movie.Released}</li>
                   <li class="list-group-item"><strong><i class="fa fa-clock-o"></i> Runtime:</strong> ${movie.Runtime}</li>
                   <li class="list-group-item"><strong><i class="fa fa-star"></i> Rated:</strong> ${movie.Rated}</li>
-                  <li class="list-group-item"><strong><i class="fa fa-imdb"></i> IMDB Rating:</strong> ${movie.imdbRating}</li>
-                  <li class="list-group-item"><strong><i class="fa id-badge"></i> IMDB ID:</strong> ${movie.imdbID}</li>
+                  <li class="list-group-item"><strong><i class="fa fa-star"></i> IMDB Rating:</strong> ${movie.imdbRating}</li>
+                  <li class="list-group-item"><strong><i class="fa fa-imdb"></i> IMDB ID:</strong> ${movie.imdbID}</li>
                   <li class="list-group-item"><strong><i class="fa fa-video-camera"></i> Director:</strong> ${movie.Director}</li>
                   <li class="list-group-item"><strong><i class="fa fa-pencil"></i> Writer:</strong> ${movie.Writer}</li>
                   <li class="list-group-item"><strong><i class="fa fa-users"></i> Actors:</strong> ${movie.Actors}</li>
