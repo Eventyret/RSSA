@@ -184,19 +184,3 @@ function movieSelected(id) {
   window.location = 'info.html?q=' + searchedFor;
   return false;
 }
-
-// Modal for info
-$(document).ready(function () {
-  if(!localStorage.getItem('introdismissed')){
-      $('#demoModal').modal('show');
-  }
-});
-
-function dismissDemo(){
- localStorage.setItem('introdismissed', true);
-    $('#demoModal').modal('hide');
-}
-function showDemo(){
-  localStorage.setItem('introdismissed', false);
-  $('#demoModal').modal('show');
-}
