@@ -44,7 +44,7 @@ This app uses the API's from the following resources:
  
 ### Setup
 1. First, you will need to clone this repository by running the ```git clone https://github.com/Eventyret/FrontEndProject.git``` command
-2. Replace the **RADARRURL** and **SONARRURL** with your own radarurl and apikey. 
+2. Replace the **FANARTAPI** with your own api key, replace the **RADARRURL** and **SONARRURL** with your own urls and apikeys in `js\api.js`. 
 
 ```javascript 
 var FANARTAPI = 'YOUR_API_KEY' // FanArt.tv API KEY
@@ -56,8 +56,7 @@ Information regarding the API endpoints can be found in their respective wiki pa
 - [Radarr Wiki](https://github.com/Radarr/Radarr/wiki/API)
 - [Sonarr Wiki](https://github.com/Sonarr/Sonarr/wiki/API)
 - **Fanart.tv** is used for the backgrounds and you will need to create an free account for the API key. It can be found [here](https://fanart.tv/get-an-api-key/).
-3. Add your newly created **Fanart.tv** API key to the `js\api.js`
-4. All configurations are done, you can run `index.html` on any server.
+3. All configurations are done, you can run `index.html` on any server.
 
 # Want to test it and see how it works? [Demo here](https://eventyret.github.io/FrontEndProject)
 
@@ -66,7 +65,7 @@ Information regarding the API endpoints can be found in their respective wiki pa
 ## Credits
 
 - [Bradtraversy](https://github.com/bradtraversy/movieinfo) 
-    - The original page design concept and where I got the idea, using his basic tech (**Bootswatch**). Further expanded upon with more / other functionalities and options.
+    - The original page design concept and where I got the idea, using his basic tech (**Bootswatch**). A minor part of his original code still exists e.g `movieSelected`. I have then further expanded upon  the code with more / other functionalities and options. e.g matching with **Sonarr** & **Radarr**, **random background**, **static background on info.html**. 
 - [Sonarr](https://github.com/Sonarr/Sonarr)
     - Sonarr is a PVR for Usenet and BitTorrent users for tv series.
 - [Radarr](https://github.com/Radarr/Radarr)
@@ -74,7 +73,7 @@ Information regarding the API endpoints can be found in their respective wiki pa
 - [Fanart.tv](https://www.fanart.tv)
     - Providing the API for backgrounds.
 - [The Open Movie Database](https://www.omdbapi.com/)
-    - Providing a API to search for movies and TV series.
+    - Providing a API to search for movies and TV series this also contains the *IMDB ID and titles* used in searches.
 
 
 ## Technologies used

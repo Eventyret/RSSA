@@ -34,16 +34,16 @@ $(document).ready(function () {
 // Modal for info
 $(document).ready(function () {
   if (!localStorage.getItem('introdismissed')) {
-    $('#demoModal').modal('show');
+    $('#helpModal').modal('show');
   }
 });
 
-function dismissDemo() {
+function dismissHelp() {
   localStorage.setItem('introdismissed', true);
-  $('#demoModal').modal('hide');
+  $('#helpModal').modal('hide');
 }
 
-function showDemo() {
+function showHelp() {
   localStorage.setItem('introdismissed', false);
-  $('#demoModal').modal('show');
+  $('#helpModal').modal('show');
 }

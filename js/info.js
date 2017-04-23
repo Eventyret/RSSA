@@ -63,11 +63,12 @@ function htmlWriteInfo(movie) {
   myHTML += `<article>
               <div class="row">
             <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})</h2>
-            <figure>
+            
             <div class="col-md-4" id="poster">
-              <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
-            </div>
+            <figure>
+              <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter" alt="${movie.Title}">
             </figure>
+            </div>
               <div class="col-md-8">
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
