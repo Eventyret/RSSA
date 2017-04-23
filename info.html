@@ -46,6 +46,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.html">Home</a></li>
+          <li><a href="#" onclick="showDemo()">Help</a></li>
           <li><a href="#" data-toggle="modal" data-target="#myModal">About the Project</a></li>
         </ul>
       </div>
@@ -98,7 +99,37 @@
       </div>
     </div>
   </div>
-
+<!--Showing Demo Modal for github-->
+  <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="demoModalLabel">This is a demo...</h4>
+        </div>
+        <div class="modal-body">
+          <h4>To show you how it works, search for one of these options:</h4><br>
+          <ul>
+            <li>Home Alone (Or just Home)</li>
+            <li>Star Wars</li>
+            <li>Billions</li>
+          </ul><br>
+          <p>You can also try to check validation. Don't enter anything in the search field and press Enter.<br> Alternatively,
+            just search for something you know doesn't exists and see how it handles errors.</p><br>
+          <p>If there is no background, don't worry; it's not broken, the system just didn't find it. Try press <b>F5</b> or
+            <i class="fa fa-refresh"></i> button and it should try find another background. It is randomly chosen and will
+            only display backgrounds from movies and series that are already in your Collection.
+          </p><br>
+          <h4>The Project itself can be found on <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a>
+          </h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="dismissDemo()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End of Demo modal-->
   <!-- Displaying Single Movie or TV Series -->
   <div class="container">
     <div id="movie" class="well"></div>
