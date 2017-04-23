@@ -60,14 +60,15 @@ function htmlWriteInfo(movie) {
   var disabledbutton = '';
   var inCollection = sessionStorage.getItem('inCollection');
   var myHTML = '';
-  myHTML += `<article><div class="row">
+  myHTML += `<article>
+              <div class="row">
+            <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})</h2>
             <figure>
             <div class="col-md-4" id="poster">
               <img src="${posterError(movie.Poster)}" class="img-thumbnail img-rounded" id="movieposter">
             </div>
             </figure>
               <div class="col-md-8">
-              <h2 class="text-center" id="movietitle">${movie.Title} (${movie.Year.substring(0, 4)})</h2>
                 <ul class="list-group">
                   <li class="list-group-item"><strong><i class="fa fa-file"></i> Genre:</strong> ${movie.Genre}</li>
                   <li class="list-group-item"><strong><i class="fa fa-calendar"></i> Released:</strong> ${movie.Released}</li>
