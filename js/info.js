@@ -86,8 +86,7 @@ function htmlWriteInfo(movie) {
   myHTML += `</ul>
             </div>
         </div>
-        <div class="row" id="rowplot">
-          <div class="well" id="plot">
+          <div class="well" id="rowplot">
             <h3>Plot</h3>
             <p>${movie.Plot}</p>
             <hr>
@@ -104,7 +103,7 @@ function htmlWriteInfo(movie) {
   }
   var searchFor = window.location.href.split('?q=');
   var searchQuery = searchFor[1];
-  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div> </div><div class="col-xs-12" style="height:100px;"></div></article>`;
+  myHTML += ` <a href="index.html?q=` + searchQuery + `" class="btn btn-default btn-space btn-rounded" data-toggle="tooltip" title="Go back and search for another movie"><i class="fa fa-undo"></i> Go Back</a></div><div class="col-xs-12" style="height:100px;"></div></article>`;
   return myHTML;
 }
 
