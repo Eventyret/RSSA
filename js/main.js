@@ -1,4 +1,4 @@
-// Opening connection to get json and urls
+// OOpens a http session
 var getData = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -11,6 +11,7 @@ var getData = function (url, callback) {
       callback(status, xhr.response);
     }
   };
+  // If we have an error we would like to know what it is.
   xhr.onerror = function () {
     var status = xhr.status;
     if (status in [400, 404, 405]) {
@@ -66,6 +67,7 @@ $(document).ready(() => {
     }
     hideLoaderIfReady();
   });
+
   // Checking for series and adds to array
   getData(SONARRURL, function (err, data) {
     if (err !== null) {
@@ -114,8 +116,8 @@ function filterMovies(id) {
   return isDownloaded;
 }
 
-// Search Function - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo modified to work with more functionality.
-
+// Search Function - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo
+// Added my own code so it displays if the movie or series is in the collection or not.
 function getMovies(searchText) {
   getData('https://www.omdbapi.com/?s=' + searchText, function (err, response) {
     if (err){
@@ -135,7 +137,8 @@ function getMovies(searchText) {
   });
 }
 
-// Writes the Search Results
+// Writes the Search Results  - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo
+// Added the buttons to display if the result is in your collection or not-
 function htmlWriteResults(cases) {
   var myHTML = '';
   myHTML += `<article><div class="col-md-4">
@@ -145,7 +148,7 @@ function htmlWriteResults(cases) {
   } else {
     myHTML += `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><p><i class="fa fa-exclamation-triangle"></i> Not in Collection</p></div>`;
   }
-  myHTML += `<figure><img src="${posterError(cases.Poster)}" alt="${cases.Title}"></figure>
+  myHTML += `<figure><img src="${posterError(cases.Poster)}" alt="${cases.Title}" class="img-responsive"></figure>
               <h5 class="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
                   <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
@@ -156,7 +159,7 @@ function htmlWriteResults(cases) {
   return myHTML;
 }
 
-// Check for tvdbID
+// Check for tvdbID This is used to match with tvshows from sonarr.
 
 function getTvdb(id) {
   var tvdbid = '';
@@ -174,7 +177,8 @@ function getTvdb(id) {
   return tvdbid;
 }
 
-// Set storage Items
+// Sets session Storage items, MovieID, tvdb ID, if its in collection or not
+// grabs the last search result, and redirects on back button.
 function movieSelected(id) {
   var tvdbID = getTvdb(id);
   if (tvdbID !== '') {

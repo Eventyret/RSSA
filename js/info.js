@@ -1,3 +1,4 @@
+// Opens a connection
 var getData = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -10,6 +11,7 @@ var getData = function (url, callback) {
       callback(status);
     }
   };
+  // If we have an error
   xhr.onerror = function () {
     var status = xhr.status;
     if (status in [400, 404, 405]) {
@@ -18,6 +20,8 @@ var getData = function (url, callback) {
   };
   xhr.send();
 };
+// Generates the background image if it is found.
+// Generates the HTML for a single movie or serie.
 function getMovie() {
   var movieId = sessionStorage.getItem('movieId');
   getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
@@ -36,6 +40,7 @@ function getMovie() {
       }
       getData(apiurl + '?api_key=' + FANARTAPI, function (err, image) {
         if (err !== null) {
+          // If no wallpaper set a background color
           document.body.style.backgroundColor = '#2b3e50';
           console.log('Something went wrong: ' + err);
         } else {
@@ -109,7 +114,7 @@ function htmlWriteInfo(movie) {
   return myHTML;
 }
 
+// Giving an alert to the user that it has been added to the collection
 function demoModal() {
-  // Using the bootbox alert modal
-  bootbox.alert('You just added the movie to Radarr Collection<br> Though this is just a demo...');
+  bootbox.alert('You just added ${movie.Title} Collection<br> <i class="fa fa-info-circle"></i> This is a demo so its not saved');
 }
