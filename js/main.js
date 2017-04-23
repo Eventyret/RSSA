@@ -1,3 +1,4 @@
+// Opening connection to get json and urls
 var getData = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -30,6 +31,7 @@ $(document).ready(() => {
 
   var moviesandtvshows = [];
 
+// Checking for movies and makes an array
   getData(RADARRURL, function (err, data) {
     if (err !== null) {
       MovieListLoaded = true;
@@ -62,7 +64,7 @@ $(document).ready(() => {
     }
     hideLoaderIfReady();
   });
-  
+  // Checking for series and adds to array
   getData(SONARRURL, function (err, data) {
     if (err !== null) {
       SeriesListLoaded = true;
@@ -80,6 +82,7 @@ $(document).ready(() => {
   this.data = moviesandtvshows;
 });
 
+// Checking that movies and series are loaded into array
 function searchIt() {
   if (MovieListLoaded && SeriesListLoaded) {
     var searchFor = window.location.href.split('?q=');

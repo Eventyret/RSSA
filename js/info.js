@@ -106,5 +106,6 @@ function htmlWriteInfo(movie) {
 }
 
 function demoModal() {
+  // Using the bootbox alert modal
   bootbox.alert('You just added the movie to Radarr Collection<br> Though this is just a demo...');
 }
