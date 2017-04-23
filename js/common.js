@@ -1,7 +1,7 @@
 var data = [];
 
 // Checks for poster
-function posterError (poster) {
+function posterError(poster) {
   if (poster === 'N/A') {
     return 'img/poster.png';
   } else {
@@ -9,7 +9,7 @@ function posterError (poster) {
   }
 }
 // Create First letter uppercase
-function upperFirst (string) {
+function upperFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -19,28 +19,31 @@ $(document).ready(function () {
 });
 
 function hideLoaderIfReady() {
-  if (MovieListLoaded && SeriesListLoaded){
+  if (MovieListLoaded && SeriesListLoaded) {
     $('.loader').hide();
   }
 }
 
 // Tooltip function
 $(document).ready(function () {
-  $('body').tooltip({ selector: '[data-toggle=tooltip]' });
+  $('body').tooltip({
+    selector: '[data-toggle=tooltip]'
+  });
 });
 
 // Modal for info
 $(document).ready(function () {
-  if(!localStorage.getItem('introdismissed')){
-      $('#demoModal').modal('show');
+  if (!localStorage.getItem('introdismissed')) {
+    $('#demoModal').modal('show');
   }
 });
 
-function dismissDemo(){
- localStorage.setItem('introdismissed', true);
-    $('#demoModal').modal('hide');
+function dismissDemo() {
+  localStorage.setItem('introdismissed', true);
+  $('#demoModal').modal('hide');
 }
-function showDemo(){
+
+function showDemo() {
   localStorage.setItem('introdismissed', false);
   $('#demoModal').modal('show');
 }

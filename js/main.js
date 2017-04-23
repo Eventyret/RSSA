@@ -99,7 +99,7 @@ function filterMovies(id) {
     [type].forEach(function (entry) {
       $.each(entry, function (i, item) {
         $.each(item, function (x, y) {
-          if (y.imdbId === id && y.sizeOnDisk > 0) {
+          if (y.imdbId === id && y.sizeOnDisk >= 0) {
             isDownloaded = true;
           }
         });
