@@ -41,7 +41,7 @@ function getMovie() {
       getData(apiurl + '?api_key=' + FANARTAPI, function(err, image) {
         if (err !== null) {
           // If no wallpaper set a background color
-          document.body.style.backgroundColor = '#2b3e50';
+          document.body.style.backgroundColor = 'rgba(62,69,81, 1)';
           console.log('Something went wrong: ' + err);
         } else {
           var imageUrl = '';

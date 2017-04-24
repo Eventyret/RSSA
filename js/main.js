@@ -54,7 +54,7 @@ $(document).ready(() => {
         function(err, image) {
 
           if (err !== null || !image.moviebackground) {
-            document.body.style.backgroundColor = '#3E4551';
+            document.body.style.backgroundColor = 'rgba(62,69,81, 1)';
           } else {
             max = image.moviebackground.length;
             random = Math.floor(Math.random() * (max - min +
@@ -144,9 +144,9 @@ function getMovies(searchText) {
     } else {
       // If we can't find any results we give a nice error message.
       $('#movies').html(
-        '<section><div class="col-md-12"><div class="well text-center"><br><i class="fa fa-exclamation-triangle fa-4x whiteheader" style="color:orange;"></i><h2 class="whiteheader">Sorry, but <b>' +
+        '<section><div class="col-md-12"><div class="well text-center"><br><i class="fa fa-exclamation-triangle fa-4x whiteheader" style="color: rgba(243,156,18, 1)"></i><h2 class="whiteheader">Sorry, but <b>' +
         searchText +
-        '</b> gave no results</h2><br><p class="whiteheader">But we would  <i class="fa fa-heart" style="color:red;"> </i>  for you to try something else.</p></div></div></section>'
+        '</b> gave no results</h2><br><p class="whiteheader">But we would  <i class="fa fa-heart" style="color: rgba(231,76,60, 1)"> </i>  for you to try something else.</p></div></div></section>'
       );
     }
   });
