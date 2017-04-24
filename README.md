@@ -30,6 +30,7 @@ This app uses the API's from the following resources:
 - Adds a placeholder image if there is no poster to display.
 - "Add to Collection" button is disabled if you have it in your collection.
 - Validates input - Use the search bar to find a movie or TV series. (***This cannot be blank**)
+- Custom 404 Error page with random quotes from `js\404.js`
 - Displays a **__green banner__** on top of the result if it is **__IN your collection.__**
 - Displays a **__red banner__** on top of the result if its **__NOT in your collection.__**
 
