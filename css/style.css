@@ -174,14 +174,6 @@ a:active {
 #top-navbar > ul > li > a:hover {
     color: rgba(231, 76, 60, 1);
 }
-#brand a:hover {
+.brand a:hover {
     color: rgba(231, 76, 60, 1);
 }
-#notfound {
-    margin: 0;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -25%) 
-    }
