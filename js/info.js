@@ -104,7 +104,7 @@ function htmlWriteInfo(movie) {
     disabledbutton = `success"`;
   }
   if (movie.Type !== 'series') {
-    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Add ${movie.Title} to collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
+    myHTML += ` <button class="btn btn-rounded btn-space btn-` + disabledbutton + ` data-toggle="tooltip" title="Add ${movie.Title} to your collection" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   } else {
     myHTML += ` <button class="btn btn-rounded btn-space btn-danger disabled" disabled data-toggle="tooltip" title="Currently unavailable" onclick="demoModal()"><i class="fa fa-cloud-download"></i> Add ${movie.Type} to collection</button>`;
   }
@@ -116,5 +116,5 @@ function htmlWriteInfo(movie) {
 
 // Giving an alert to the user that it has been added to the collection
 function demoModal() {
-  bootbox.alert('You just added ${movie.Title} Collection<br> <i class="fa fa-info-circle"></i> This is a demo so its not saved');
+  bootbox.alert('It\'s been added to your Collection<br> <i class="fa fa-info-circle"></i> This is a demo so its not saved');
 }
