@@ -1,9 +1,9 @@
 // Opens a connection
-var getData = function (url, callback) {
+var getData = function(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
   xhr.responseType = 'json';
-  xhr.onload = function () {
+  xhr.onload = function() {
     var status = xhr.status;
     if (status === 200) {
       callback(null, xhr.response);
@@ -12,7 +12,7 @@ var getData = function (url, callback) {
     }
   };
   // If we have an error
-  xhr.onerror = function () {
+  xhr.onerror = function() {
     var status = xhr.status;
     if (status in [400, 404, 405]) {
       console.log('Request Failed with status ' + status);
@@ -24,7 +24,7 @@ var getData = function (url, callback) {
 // Generates the HTML for a single movie or serie.
 function getMovie() {
   var movieId = sessionStorage.getItem('movieId');
-  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function (err, data) {
+  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function(err, data) {
     if (err !== null) {
       console.log(err);
     } else {
@@ -38,7 +38,7 @@ function getMovie() {
       } else {
         apiurl = 'https://webservice.fanart.tv/v3/movies/' + movieId;
       }
-      getData(apiurl + '?api_key=' + FANARTAPI, function (err, image) {
+      getData(apiurl + '?api_key=' + FANARTAPI, function(err, image) {
         if (err !== null) {
           // If no wallpaper set a background color
           document.body.style.backgroundColor = '#2b3e50';

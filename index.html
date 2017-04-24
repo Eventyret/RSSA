@@ -50,7 +50,7 @@
           <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="#" onclick="showHelp()"><i class="fa fa-question-circle"></i> Help</a></li>
           <li><a href="#" data-toggle="modal" data-target="#project"><i class="fa fa-info-circle"></i> About the Project</a></li>
-        </ul>
+          </ul>
       </div>
     </div>
   </nav>
@@ -66,14 +66,11 @@
           </div>
           <div class="modal-body">
             <h3>What is this app for?</h3>
-            <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr">Sonarr</a>              from just a search function? Well, look no further.</p>
+            <p>Ever wanted to use <a href="https://github.com/Radarr/Radarr">Radarr</a> or <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> from just a search function? Well, look no further.</p>
             <h3 id="whatdoesitdo">What does it do?</h3>
-            <p>RSSA uses the API from <a href="https://github.com/Radarr/Radarr">Radarr</a> and <a href="https://github.com/Sonarr/Sonarr">Sonarr</a>              to find what is in your libary.<br>It will then match what you are searching for and display in a simple term
-              if you have it in your collection or not. </p>
+            <p>RSSA uses the API from <a href="https://github.com/Radarr/Radarr">Radarr</a> and <a href="https://github.com/Sonarr/Sonarr">Sonarr</a> to find what is in your libary.<br>It will then match what you are searching for and display in a simple term if you have it in your collection or not. </p>
             <h3 id="howdoesitwork">How does it work?</h3>
-            <p>RSSA will compare the result you are searching for with what you already have in your collection. It will load
-              the Radarr &amp; Sonarr JSON into one array and when you search it will loop through and check for matches.
-              It is considered to be a part of your collection if <em>Size on disk is greater than 0</em> and matches the
+            <p>RSSA will compare the result you are searching for with what you already have in your collection. It will load the Radarr &amp; Sonarr JSON into one array and when you search it will loop through and check for matches. It is considered to be a part of your collection if <em>Size on disk is greater than 0</em> and matches the
               <em>IMDB ID or title</em>.</p>
             <p>This app uses the API's from the following resources:</p>
             <ul>
@@ -120,17 +117,15 @@
               <li>Star Wars</li>
               <li>Billions</li>
             </ul><br>
-            <p>You can also try to check validation. Don't enter anything in the search field and press Enter.<br> Alternatively,
-              just search for something you know doesn't exists and see how it handles errors.</p><br>
-            <p>If there is no background, don't worry; it's not broken, the system just didn't find it. Try press <b>F5</b>              or
-              <i class="fa fa-refresh"></i> button and it should try find another background. It is randomly chosen and will
-              only display backgrounds from movies and series that are already in your Collection.
+            <p>You can also try to check validation. Don't enter anything in the search field and press Enter.<br> Alternatively, just search for something you know doesn't exists and see how it handles errors.</p><br>
+            <p>If there is no background, don't worry; it's not broken, the system just didn't find it. Try press <b>F5</b> or
+              <i class="fa fa-refresh"></i> button and it should try find another background. It is randomly chosen and will only display backgrounds from movies and series that are already in your Collection.
             </p><br>
             <h4>The Project itself can be found on
               <a href="https://github.com/Eventyret/FrontEndProject" target="_blank"><i class="fa fa-github"></i> Github</a>
             </h4>
-            <p><i class="fa fa-info-circle"></i> If you need to see this information again, click on help at the navigation
-              bar</p>
+            <p><i class="fa fa-info-circle"></i> If you need to see this information again, click on help at the navigation bar
+            </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="dismissHelp()">Close</button>
@@ -142,26 +137,25 @@
   <!--End of Demo modal-->
 
   <!-- Start Search Content & Movie Container |  - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo modified to work with more functionality. -->
-    <div class="container">
-      <div class="row">
-        <div class="jumbotron vertical-center" id="search">
-          <div class="row">
-            <form id="searchForm">
-              <div class="input-group">
-                <input type="text" class="form-control" id="searchText" placeholder="Search for any move or series and press enter..." autofocus
-                  required>
-                <span class="input-group-btn"><input type="submit" id="searchbutton" class="btn btn-primary" value="Go"></span>
-              </div>
-            </form>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron vertical-center" id="search">
+        <div class="row">
+          <form id="searchForm">
+            <div class="input-group">
+              <input type="text" class="form-control" id="searchText" placeholder="Search for any move or series and press enter..." autofocus required>
+              <span class="input-group-btn"><input type="submit" id="searchbutton" class="btn btn-primary" value="Go"></span>
+            </div>
+          </form>
         </div>
+      </div>
 
-        <div class="container" id="maincontainer">
-          <div id="movies" class="row">
-          </div>
+      <div class="container" id="maincontainer">
+        <div id="movies" class="row">
         </div>
       </div>
     </div>
+  </div>
   <!--End Search Content & Movie container-->
 
   <!--Footer-->

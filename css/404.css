@@ -1,0 +1,75 @@
+html,
+body {
+    width: 100%;
+    height: 85%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+}
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../img/404.gif) no-repeat center center fixed;
+    background-size: cover;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+.content {
+    font-family: 'Open Sans';
+    color: #fff;
+    background-color: transparent;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    padding-left: 30px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+h1 {
+    font-family: 'Open Sans';
+    font-size: 160px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+h2 {
+    font-family: 'Open Sans';
+    margin-top: 0;
+    max-width: 700px;
+    font-size: 30px;
+    width: 90%;
+}
+p {
+    font-family: 'Open Sans';
+    text-align: left;
+    padding-bottom: 32px;
+    /* Fallback */
+    
+    font-size: 20px;
+    /* For responsiveness */
+    
+    font-size: 2vmin;
+}
+.btn {
+    display: inline-block;
+    border: 1px solid #aaa;
+    border-radius: 40px;
+    padding: 15px 30px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.btn:hover {
+    color: #e2e2e2;
+    background: rgba(255, 255, 255, 0.10);
+}
+@media only screen and (max-width: 480px) {
+    .btn {
+        width: 100%;
+        border: 1px solid #aaa;
+    }
+    h1 {
+        font-family: 'Open Sans';
+        font-size: 120px;
+    }
+}

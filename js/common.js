@@ -14,7 +14,7 @@ function upperFirst(string) {
 }
 
 // Loading Animation
-$(document).ready(function () {
+$(document).ready(function() {
   $('.loader').show();
 });
 
@@ -26,14 +26,14 @@ function hideLoaderIfReady() {
 }
 
 // Tooltip function
-$(document).ready(function () {
+$(document).ready(function() {
   $('body').tooltip({
     selector: '[data-toggle=tooltip]'
   });
 });
 
 // Loading modal with help first time
-$(document).ready(function () {
+$(document).ready(function() {
   if (!localStorage.getItem('introdismissed')) {
     $('#helpModal').modal('show');
   }

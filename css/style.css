@@ -1,7 +1,8 @@
 /*Importing Google Fonts*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 /*Media Queries for responsive fonts*/
+
 @media all and (max-width: 1200px) {
     body {
         font-size: 1.33vw;
@@ -10,24 +11,24 @@
 @media all and (max-width: 1000px) {
     body {
         font-size: 1.6em;
-        }
+    }
 }
 @media all and (max-width: 500px) {
     body {
         font-size: 3.2vw;
-        }
+    }
 }
 html {
-   height: 100%;
+    height: 100%;
 }
-
 /*Common styles used on both pages*/
+
 body {
     min-height: 100%;
     background-color: #3E4551
 }
 h1 {
-	font-family: "Open Sans";
+    font-family: "Open Sans";
     font-size: 40px;
 }
 h2 {
@@ -35,7 +36,7 @@ h2 {
     font-size: 32px;
 }
 h3 {
-	font-family: "Open Sans";
+    font-family: "Open Sans";
     font-size: 28px;
 }
 h4 {
@@ -47,31 +48,29 @@ h5 {
     font-size: 20px;
     font-weight: 600;
 }
-
 p li ul {
-	font-family: "Open Sans";
+    font-family: "Open Sans";
     /* Fallback */
+    
     font-size: 16px;
     /* For responsiveness */
-	font-size: 2vmin;
+    
+    font-size: 2vmin;
 }
 .loader {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(../img/loading.svg) 50% 50% no-repeat rgba(62,69,81,0.8);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../img/loading.svg) 50% 50% no-repeat rgba(62, 69, 81, 0.8);
 }
-
 .col-md-4 {
     margin-bottom: 5px;
 }
-
-
 .whiteheader {
-    color: rgba(255,255,255, 1);
+    color: rgba(255, 255, 255, 1);
 }
 .randombg {
     min-height: 100%;
@@ -81,9 +80,11 @@ p li ul {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    
 }
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
     text-decoration: none;
 }
 .well {
@@ -91,22 +92,19 @@ a:link, a:visited, a:hover, a:active {
     padding: 19px;
     margin-bottom: 5px;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     background-color: rgba(44, 62, 80, 0.32);
 }
-
 #movietitle {
-    color: rgba(255,255,255, 1);
+    color: rgba(255, 255, 255, 1);
 }
-
 /*Used on index.html*/
 
 #movies img {
     height: 220px;
     width: 150px;
 }
-
 #movies .col-md-4 img {
     height: 220px;
 }
@@ -122,7 +120,6 @@ a:link, a:visited, a:hover, a:active {
 #searchbutton {
     margin-right: 5px;
 }
-
 /*Used on info.html*/
 
 #movie .col-md-4 img {
@@ -133,7 +130,6 @@ a:link, a:visited, a:hover, a:active {
     margin-top: 2.7vh;
     margin-left: 20px;
 }
-
 .img-thumbnail {
     padding: 4px;
     line-height: 1.42857143;
@@ -147,7 +143,6 @@ a:link, a:visited, a:hover, a:active {
     max-width: 100%;
     height: auto;
     border-radius: 15px;
-    
 }
 .list-group {
     margin-bottom: 20px;
@@ -161,11 +156,11 @@ a:link, a:visited, a:hover, a:active {
 }
 #rowplot {
     margin-bottom: -10px;
-    color: rgba(255,255,255, 1);
+    color: rgba(255, 255, 255, 1);
     background-color: rgba(44, 62, 80, 0.52);
 }
-
 /* Navbar */
+
 .navbar-fixed-bottom {
     bottom: -10px;
     margin-bottom: 0;
@@ -177,8 +172,16 @@ a:link, a:visited, a:hover, a:active {
     border-color: transparent;
 }
 #top-navbar > ul > li > a:hover {
-    color:rgba(231,76,60, 1); 
+    color: rgba(231, 76, 60, 1);
 }
 #brand a:hover {
-    color:rgba(231,76,60, 1);
+    color: rgba(231, 76, 60, 1);
 }
+#notfound {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -25%) 
+    }
