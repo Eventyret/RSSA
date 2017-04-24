@@ -167,7 +167,7 @@ function htmlWriteResults(cases) {
       `<div class="alert alert-danger" id="${cases.imdbID}notInCollection"><p><i class="fa fa-exclamation-triangle"></i> Not in Collection</p></div>`;
   }
   myHTML +=
-    `<figure><img src="${posterError(cases.Poster)}" alt="${cases.Title}" class="img-responsive"></figure>
+    `<figure><img src="${posterError(cases.Poster)}" alt="${cases.Title}"></figure>
               <h5 class="whiteheader">${cases.Title} (${cases.Year.substring(0, 4)})</h5>
                 <div class="btn-group">
                   <a onclick="movieSelected('${cases.imdbID}')" class="btn btn-primary btn-rounded" href="#"><i class="fa fa-info-circle"></i> ${upperFirst(cases.Type)} Details</a>
