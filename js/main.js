@@ -128,7 +128,7 @@ function filterMovies(id) {
 // Search Function - Original code from Bradtraversy https://github.com/bradtraversy/movieinfo
 // Added my own code so it displays if the movie or series is in the collection or not.
 function getMovies(searchText) {
-  getData('https://www.omdbapi.com/?s=' + searchText, function(err,
+  getData('https://www.omdbapi.com/?s=' + searchText + '&apikey=' + OMDBAPIKEY, function(err,
     response) {
     if (err) {
       return;
