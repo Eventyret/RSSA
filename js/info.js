@@ -24,7 +24,7 @@ var getData = function(url, callback) {
 // Generates the HTML for a single movie or serie.
 function getMovie() {
   var movieId = sessionStorage.getItem('movieId');
-  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full', function(err, data) {
+  getData('https://www.omdbapi.com/?i=' + movieId + '&plot=full' + '&apikey=' + OMDBAPIKEY, function(err, data) {
     if (err !== null) {
       console.log(err);
     } else {
