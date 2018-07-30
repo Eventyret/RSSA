@@ -135,7 +135,7 @@ function getMovies(searchText) {
     }
     if (response.Search) {
       // Lets only resolve 9 results.
-      var omdbData = response.Search.splice(-1, 1);
+      var omdbData = response.Search;
       var output = '';
       $.each(omdbData, (index, movie) => {
         output += htmlWriteResults(movie);
