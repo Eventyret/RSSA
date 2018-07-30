@@ -88,7 +88,7 @@ a:active {
     text-decoration: none;
 }
 .well {
-    min-height: 20px;
+    min-height: 450px;
     padding: 19px;
     margin-bottom: 5px;
     border-radius: 4px;
@@ -99,8 +99,8 @@ a:active {
 #movietitle {
     color: rgba(255, 255, 255, 1);
 }
-/*Used on index.html*/
 
+/*Used on index.html*/
 #movies img {
     height: 220px;
     width: 150px;
@@ -133,7 +133,7 @@ a:active {
 .img-thumbnail {
     padding: 4px;
     line-height: 1.42857143;
-    background-color: rgba(43,62,80, 1)
+    background-color: rgba(43,62,80, 1);
     border: 1px solid rgba(84,101,117, 1);
     border-radius: 0;
     -webkit-transition: all .2s ease-in-out;
