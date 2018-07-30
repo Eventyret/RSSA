@@ -134,6 +134,7 @@ function getMovies(searchText) {
       return;
     }
     if (response.Search) {
+      response.Search.pop();
       var omdbData = response.Search;
       var output = '';
       $.each(omdbData, (index, movie) => {
